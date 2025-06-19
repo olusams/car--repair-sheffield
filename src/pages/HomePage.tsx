@@ -13,6 +13,7 @@ import { siteConfig } from '../data/siteConfig';
 import { testimonials } from '../data/testimonials';
 
 const HomePage: React.FC = () => {
+  console.log('HomePage component rendering...');
   const featuredServices = services.filter(service => service.popular).slice(0, 3);
 
   return (

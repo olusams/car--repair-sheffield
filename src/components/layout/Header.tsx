@@ -113,11 +113,11 @@ const Header: React.FC = () => {
           {/* Enhanced Professional Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-10">
             {[
-              { to: '/car--repair-sheffield', label: 'Home' },
-              { to: '/car--repair-sheffield/about', label: 'About Us' },
-              { to: '/car--repair-sheffield/services', label: 'Our Services' },
-              { to: '/car--repair-sheffield/contact', label: 'Contact' },
-              { to: '/car--repair-sheffield/appointment', label: 'Book Now' }
+              { to: '/', label: 'Home' },
+              { to: '/about', label: 'About Us' },
+              { to: '/services', label: 'Our Services' },
+              { to: '/contact', label: 'Contact' },
+              { to: '/appointment', label: 'Book Now' }
             ].map((link) => (
               <Link
                 key={link.to}

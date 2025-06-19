@@ -32,6 +32,8 @@ const NotFoundPage = () => (
 );
 
 function App() {
+  console.log('App component rendering...');
+  
   return (
     <HelmetProvider>
       <ErrorBoundary>
