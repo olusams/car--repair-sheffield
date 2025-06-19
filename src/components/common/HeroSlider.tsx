@@ -95,7 +95,7 @@ const HeroSlider: React.FC<HeroSliderProps> = ({ slides }) => {
                   src={slide.image}
                   alt={slide.title}
                   className="w-full h-full object-cover"
-                  fallbackSrc="/assets/img/hero/hero_bg_1_1.jpg"
+                  fallbackSrc="/car--repair-sheffield/assets/img/hero/hero_bg_1_1.jpg"
                   loading={index === 0 ? 'eager' : 'lazy'}
                   priority={index === currentSlide}
                 />

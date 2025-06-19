@@ -113,7 +113,7 @@ const GallerySection: React.FC<GallerySectionProps> = ({ className = '' }) => {
                       src={item.image}
                       alt={item.title}
                       className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
-                      fallbackSrc="/assets/img/project/default-project.jpg"
+                      fallbackSrc="/car--repair-sheffield/assets/img/project/default-project.jpg"
                     />
                     
                     {/* Category Badge */}

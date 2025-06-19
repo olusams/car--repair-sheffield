@@ -56,7 +56,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ testimonial, classNam
                 src={testimonial.image}
                 alt={testimonial.name}
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                fallbackSrc="/assets/img/testimonial/testi_1_1.jpg"
+                fallbackSrc="/car--repair-sheffield/assets/img/testimonial/testi_1_1.jpg"
               />
             </div>
             <div className="absolute inset-0 rounded-full bg-gradient-to-br from-yellow-400/20 to-orange-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm scale-150"></div>
