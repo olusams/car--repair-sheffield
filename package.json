@@ -1,0 +1,60 @@
+{
+  "name": "malen-car-repair-modern",
+  "version": "1.0.0",
+  "description": "Modern Car Repair and Services Website",
+  "private": true,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "dependencies": {
+    "@headlessui/react": "^1.7.0",
+    "@types/node": "^20.0.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "@types/react-helmet-async": "^1.0.1",
+    "ajv": "^8.12.0",
+    "autoprefixer": "^10.4.0",
+    "axios": "^1.6.0",
+    "clsx": "^2.0.0",
+    "framer-motion": "^10.16.0",
+    "html-webpack-plugin": "^5.6.3",
+    "lodash": "^4.17.21",
+    "lucide-react": "^0.292.0",
+    "postcss": "^8.4.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-helmet-async": "^1.3.0",
+    "react-hook-form": "^7.47.0",
+    "react-intersection-observer": "^9.5.0",
+    "react-query": "^3.39.0",
+    "react-router-dom": "^6.8.0",
+    "react-scripts": "5.0.1",
+    "swiper": "^11.0.0",
+    "tailwindcss": "^3.3.0",
+    "typescript": "^4.9.0"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.0"
+  }
+}
