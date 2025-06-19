@@ -36,7 +36,7 @@ export const services: Service[] = [
     features: ['Engine diagnostics', 'Performance tuning', 'Engine rebuilds', 'Oil leak repair'],
     popular: true,
     color: 'from-red-500 to-red-600',
-    image: '/car--repair-sheffield/assets/img/update_1/service/service_4_1.jpg',
+    image: '/assets/img/update_1/service/service_4_1.jpg',
     videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
     details: 'Our certified technicians use state-of-the-art diagnostic equipment to identify and repair engine issues. We handle everything from minor tune-ups to major engine rebuilds.'
   },
@@ -51,7 +51,7 @@ export const services: Service[] = [
     features: ['Brake pad replacement', 'Rotor resurfacing', 'Brake fluid flush', 'ABS system repair'],
     popular: false,
     color: 'from-blue-500 to-blue-600',
-    image: '/car--repair-sheffield/assets/img/update_1/service/service_4_2.jpg',
+    image: '/assets/img/update_1/service/service_4_2.jpg',
     videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
     details: 'Your safety is our priority. We provide complete brake system services including inspection, repair, and maintenance to ensure your vehicle stops safely.'
   },
@@ -66,7 +66,7 @@ export const services: Service[] = [
     features: ['Full-synthetic oil', 'Oil filter replacement', 'Multi-point inspection', 'Tire rotation'],
     popular: true,
     color: 'from-green-500 to-green-600',
-    image: '/car--repair-sheffield/assets/img/update_1/service/service_4_3.jpg',
+    image: '/assets/img/update_1/service/service_4_3.jpg',
     videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
     details: 'Regular oil changes are essential for engine longevity. We use high-quality synthetic oils and perform a comprehensive inspection with every oil change.'
   },
@@ -81,7 +81,7 @@ export const services: Service[] = [
     features: ['Transmission fluid change', 'Clutch replacement', 'Gearbox repair', 'CVT service'],
     popular: false,
     color: 'from-purple-500 to-purple-600',
-    image: '/car--repair-sheffield/assets/img/update_1/service/service_4_4.jpg',
+    image: '/assets/img/update_1/service/service_4_4.jpg',
     videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
     details: 'Our transmission specialists handle all types of transmissions including manual, automatic, and CVT systems with precision and expertise.'
   },
@@ -96,7 +96,7 @@ export const services: Service[] = [
     features: ['Battery replacement', 'Alternator repair', 'Starter service', 'Wiring repair', 'ECU diagnostics', 'Lighting systems'],
     popular: true,
     color: 'from-yellow-500 to-yellow-600',
-    image: '/car--repair-sheffield/assets/img/update_1/service/service_4_1.jpg',
+    image: '/assets/img/update_1/service/service_4_1.jpg',
     videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
     details: 'Modern vehicles rely heavily on sophisticated electrical systems. Our certified technicians are trained to diagnose and repair complex electrical issues efficiently, ensuring your vehicle operates at peak performance.'
   },
@@ -111,7 +111,7 @@ export const services: Service[] = [
     features: ['AC recharge', 'Heater repair', 'Climate control', 'Thermostat replacement'],
     popular: false,
     color: 'from-cyan-500 to-cyan-600',
-    image: '/car--repair-sheffield/assets/img/update_1/service/service_4_2.jpg',
+    image: '/assets/img/update_1/service/service_4_2.jpg',
     videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
     details: 'Stay comfortable year-round with our climate control services. We service all types of heating and air conditioning systems.'
   },
@@ -126,7 +126,7 @@ export const services: Service[] = [
     features: ['Tire replacement', 'Wheel alignment', 'Tire rotation', 'Flat repair'],
     popular: false,
     color: 'from-orange-500 to-orange-600',
-    image: '/car--repair-sheffield/assets/img/update_1/service/service_4_3.jpg',
+    image: '/assets/img/update_1/service/service_4_3.jpg',
     videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
     details: 'Proper tire maintenance is crucial for safety and performance. We offer comprehensive tire services including alignment and balancing.'
   },
@@ -141,7 +141,7 @@ export const services: Service[] = [
     features: ['Engine codes', 'System analysis', 'Performance testing', 'Error clearing'],
     popular: true,
     color: 'from-indigo-500 to-indigo-600',
-    image: '/car--repair-sheffield/assets/img/update_1/service/service_4_4.jpg',
+    image: '/assets/img/update_1/service/service_4_4.jpg',
     videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
     details: 'Modern diagnostic equipment allows us to quickly identify issues and provide accurate solutions for complex vehicle problems.'
   }

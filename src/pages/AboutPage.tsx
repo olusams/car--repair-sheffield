@@ -140,7 +140,7 @@ const AboutPage: React.FC = () => {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat transform scale-105"
           style={{
-            backgroundImage: `url(/car--repair-sheffield/assets/img/update_1/hero/hero_bg_3_2.jpg)`
+            backgroundImage: `url(/assets/img/update_1/hero/hero_bg_3_2.jpg)`
           }}
         >
           {/* Enhanced Overlay with Multiple Layers */}
@@ -491,7 +491,7 @@ const AboutPage: React.FC = () => {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url(/car--repair-sheffield/assets/img/update_1/hero/hero_bg_3_3.jpg)`,
+            backgroundImage: `url(/assets/img/update_1/hero/hero_bg_3_3.jpg)`,
             backgroundSize: 'cover',
             backgroundPosition: 'center'
           }}

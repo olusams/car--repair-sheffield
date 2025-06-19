@@ -17,7 +17,7 @@ const OptimizedImage: React.FC<OptimizedImageProps> = ({
   src,
   alt,
   className = '',
-  fallbackSrc = '/car--repair-sheffield/assets/img/update_1/hero/hero_bg_3_1.jpg',
+  fallbackSrc = '/assets/img/update_1/hero/hero_bg_3_1.jpg',
   loading = 'lazy',
   onLoad,
   onError,

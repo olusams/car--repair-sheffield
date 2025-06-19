@@ -30,7 +30,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, className = '' }) =>
           src={service.image}
           alt={service.title}
           className="w-full h-48 object-cover transition-all duration-700 group-hover:scale-110 group-hover:rotate-1"
-          fallbackSrc="/car--repair-sheffield/assets/img/service/service_1_1.jpg"
+          fallbackSrc="/assets/img/service/service_1_1.jpg"
         />
         
         {/* Enhanced Overlay Effects */}

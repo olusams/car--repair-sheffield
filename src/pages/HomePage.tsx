@@ -221,7 +221,7 @@ const HomePage: React.FC = () => {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat transform scale-105"
           style={{
-            backgroundImage: `url(/car--repair-sheffield/assets/img/update_1/hero/hero_bg_3_2.jpg)`
+            backgroundImage: `url(/assets/img/update_1/hero/hero_bg_3_2.jpg)`
           }}
         >
           <div className="absolute inset-0 bg-gradient-to-br from-primary-700/60 via-primary-800/40 to-primary-900/50"></div>
