@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
+import { useHighContrastMode, useReducedMotion } from './accessibilityHooks';
 
 interface AccessibilityWrapperProps {
   children: React.ReactNode;
@@ -27,44 +28,39 @@ const AccessibilityWrapper: React.FC<AccessibilityWrapperProps> = ({
   focusTrap = false
 }) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
+  const isHighContrast = useHighContrastMode();
+  const prefersReducedMotion = useReducedMotion();
 
-  // Handle keyboard navigation
-  const handleKeyDown = (event: React.KeyboardEvent) => {
-    // Skip to content functionality
-    if (skipToContent && event.key === 'Tab' && event.shiftKey === false) {
-      const mainContent = document.querySelector('main');
-      if (mainContent) {
+  const handleKeyDownWrapper = (event: React.KeyboardEvent) => {
+    // Handle skip to content
+    if (skipToContent && event.key === 'Tab' && !event.shiftKey) {
+      const firstFocusableElement = wrapperRef.current?.querySelector(
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+      ) as HTMLElement;
+      
+      if (firstFocusableElement) {
         event.preventDefault();
-        (mainContent as HTMLElement).focus();
+        firstFocusableElement.focus();
       }
     }
 
-    // Focus trap functionality
-    if (focusTrap && wrapperRef.current) {
-      const focusableElements = wrapperRef.current.querySelectorAll(
+    // Handle focus trap
+    if (focusTrap && event.key === 'Tab') {
+      const focusableElements = wrapperRef.current?.querySelectorAll(
         'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-      );
-      const firstElement = focusableElements[0] as HTMLElement;
-      const lastElement = focusableElements[focusableElements.length - 1] as HTMLElement;
-
-      if (event.key === 'Tab') {
-        if (event.shiftKey) {
-          if (document.activeElement === firstElement) {
-            event.preventDefault();
-            lastElement.focus();
-          }
-        } else {
-          if (document.activeElement === lastElement) {
-            event.preventDefault();
-            firstElement.focus();
-          }
+      ) as NodeListOf<HTMLElement>;
+      
+      if (focusableElements && focusableElements.length > 0) {
+        const firstElement = focusableElements[0];
+        const lastElement = focusableElements[focusableElements.length - 1];
+        
+        if (event.shiftKey && document.activeElement === firstElement) {
+          event.preventDefault();
+          lastElement.focus();
+        } else if (!event.shiftKey && document.activeElement === lastElement) {
+          event.preventDefault();
+          firstElement.focus();
         }
-      }
-
-      // Escape key to close modal/dropdown
-      if (event.key === 'Escape') {
-        const closeEvent = new CustomEvent('closeModal');
-        window.dispatchEvent(closeEvent);
       }
     }
 
@@ -72,60 +68,47 @@ const AccessibilityWrapper: React.FC<AccessibilityWrapperProps> = ({
     onKeyDown?.(event);
   };
 
-  // Auto-focus first focusable element when component mounts
-  useEffect(() => {
-    if (focusTrap && wrapperRef.current) {
-      const focusableElements = wrapperRef.current.querySelectorAll(
-        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-      );
-      const firstElement = focusableElements[0] as HTMLElement;
-      if (firstElement) {
-        firstElement.focus();
-      }
-    }
-  }, [focusTrap]);
+  const highContrastClasses = isHighContrast ? 'border-2 border-black' : '';
+  const reducedMotionClasses = prefersReducedMotion ? 'transition-none' : '';
 
   return (
-    <div
+    <motion.div
       ref={wrapperRef}
       role={role}
       aria-label={ariaLabel}
       aria-describedby={ariaDescribedby}
       aria-labelledby={ariaLabelledby}
       tabIndex={tabIndex}
-      onKeyDown={handleKeyDown}
-      className={className}
+      onKeyDown={handleKeyDownWrapper}
+      className={`${className} ${highContrastClasses} ${reducedMotionClasses}`}
+      initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
+      animate={prefersReducedMotion ? false : { opacity: 1, y: 0 }}
+      transition={prefersReducedMotion ? undefined : { duration: 0.3 }}
     >
       {children}
-    </div>
+    </motion.div>
   );
 };
 
-// Skip to Content Link Component
+// Skip to Content Component
 export const SkipToContent: React.FC = () => {
   const handleSkipClick = (e: React.MouseEvent) => {
     e.preventDefault();
-    const mainContent = document.getElementById('main-content');
+    const mainContent = document.querySelector('main') || document.querySelector('#main-content');
     if (mainContent) {
-      mainContent.focus();
+      (mainContent as HTMLElement).focus();
       mainContent.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
   return (
-    <AnimatePresence>
-      <motion.a
-        href="#main-content"
-        onClick={handleSkipClick}
-        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:bg-blue-600 focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-500/30"
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -10 }}
-        transition={{ duration: 0.3 }}
-      >
+    <a
+      href="#main-content"
+      onClick={handleSkipClick}
+      className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-blue-600 text-white px-4 py-2 rounded-lg z-50"
+    >
       Skip to main content
-    </motion.a>
-    </AnimatePresence>
+    </a>
   );
 };
 
@@ -151,33 +134,29 @@ export const FocusTrap: React.FC<FocusTrapProps> = ({
 
     const focusableElements = container.querySelectorAll(
       'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-    );
-    const firstElement = focusableElements[0] as HTMLElement;
-    const lastElement = focusableElements[focusableElements.length - 1] as HTMLElement;
+    ) as NodeListOf<HTMLElement>;
+
+    if (focusableElements.length === 0) return;
+
+    const firstElement = focusableElements[0];
+    const lastElement = focusableElements[focusableElements.length - 1];
 
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && onEscape) {
-        onEscape();
-        return;
-      }
-
       if (e.key === 'Tab') {
-        if (e.shiftKey) {
-          if (document.activeElement === firstElement) {
-            e.preventDefault();
-            lastElement.focus();
-          }
-        } else {
-          if (document.activeElement === lastElement) {
-            e.preventDefault();
-            firstElement.focus();
-          }
+        if (e.shiftKey && document.activeElement === firstElement) {
+          e.preventDefault();
+          lastElement.focus();
+        } else if (!e.shiftKey && document.activeElement === lastElement) {
+          e.preventDefault();
+          firstElement.focus();
         }
+      } else if (e.key === 'Escape' && onEscape) {
+        onEscape();
       }
     };
 
     document.addEventListener('keydown', handleKeyDown);
-    firstElement?.focus();
+    firstElement.focus();
 
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
@@ -185,13 +164,13 @@ export const FocusTrap: React.FC<FocusTrapProps> = ({
   }, [isActive, onEscape]);
 
   return (
-    <div ref={containerRef} tabIndex={-1}>
+    <div ref={containerRef}>
       {children}
     </div>
   );
 };
 
-// Screen Reader Only Text Component
+// Screen Reader Only Component
 interface SrOnlyProps {
   children: React.ReactNode;
   className?: string;
@@ -203,7 +182,7 @@ export const SrOnly: React.FC<SrOnlyProps> = ({ children, className = '' }) => (
   </span>
 );
 
-// Live Region Component for Dynamic Content
+// Live Region Component
 interface LiveRegionProps {
   children: React.ReactNode;
   ariaLive?: 'polite' | 'assertive' | 'off';
@@ -228,83 +207,6 @@ export const LiveRegion: React.FC<LiveRegionProps> = ({
     {children}
   </div>
 );
-
-// Keyboard Navigation Hook
-export const useKeyboardNavigation = () => {
-  const handleKeyDown = (e: React.KeyboardEvent, callback: () => void) => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      callback();
-    }
-  };
-
-  const handleArrowKeys = (
-    e: React.KeyboardEvent,
-    onUp?: () => void,
-    onDown?: () => void,
-    onLeft?: () => void,
-    onRight?: () => void
-  ) => {
-    switch (e.key) {
-      case 'ArrowUp':
-        e.preventDefault();
-        onUp?.();
-        break;
-      case 'ArrowDown':
-        e.preventDefault();
-        onDown?.();
-        break;
-      case 'ArrowLeft':
-        e.preventDefault();
-        onLeft?.();
-        break;
-      case 'ArrowRight':
-        e.preventDefault();
-        onRight?.();
-        break;
-    }
-  };
-
-  return { handleKeyDown, handleArrowKeys };
-};
-
-// High Contrast Mode Detection
-export const useHighContrastMode = () => {
-  const [isHighContrast, setIsHighContrast] = React.useState(false);
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia('(prefers-contrast: high)');
-    setIsHighContrast(mediaQuery.matches);
-
-    const handleChange = (e: MediaQueryListEvent) => {
-      setIsHighContrast(e.matches);
-    };
-
-    mediaQuery.addEventListener('change', handleChange);
-    return () => mediaQuery.removeEventListener('change', handleChange);
-  }, []);
-
-  return isHighContrast;
-};
-
-// Reduced Motion Detection
-export const useReducedMotion = () => {
-  const [prefersReducedMotion, setPrefersReducedMotion] = React.useState(false);
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-    setPrefersReducedMotion(mediaQuery.matches);
-
-    const handleChange = (e: MediaQueryListEvent) => {
-      setPrefersReducedMotion(e.matches);
-    };
-
-    mediaQuery.addEventListener('change', handleChange);
-    return () => mediaQuery.removeEventListener('change', handleChange);
-  }, []);
-
-  return prefersReducedMotion;
-};
 
 // Enhanced Button Component with Accessibility
 interface AccessibleButtonProps {

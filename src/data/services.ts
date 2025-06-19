@@ -7,11 +7,12 @@ import {
   Wrench, 
   Star 
 } from 'lucide-react';
+import { ComponentType } from 'react';
 
 export interface Service {
   id: string;
   category: string;
-  icon: any;
+  icon: ComponentType<{ className?: string }>;
   title: string;
   description: string;
   duration: string;

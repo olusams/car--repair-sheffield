@@ -2,6 +2,17 @@ import React, { useEffect, useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Activity, Clock, Zap, AlertTriangle, X, Maximize2, Minimize2 } from 'lucide-react';
 
+// Type definitions for performance memory
+interface PerformanceMemory {
+  usedJSHeapSize: number;
+  totalJSHeapSize: number;
+  jsHeapSizeLimit: number;
+}
+
+interface PerformanceWithMemory extends Performance {
+  memory?: PerformanceMemory;
+}
+
 interface PerformanceMetrics {
   loadTime: number;
   firstContentfulPaint: number;
@@ -169,8 +180,9 @@ const PerformanceMonitor: React.FC<PerformanceMonitorProps> = ({
 
     // Monitor memory usage (if available)
     const monitorMemory = () => {
-      if ('memory' in performance) {
-        const memory = (performance as any).memory;
+      const perf = performance as PerformanceWithMemory;
+      if ('memory' in performance && perf.memory) {
+        const memory = perf.memory;
         setMetrics(prev => ({
           ...prev,
           memoryUsage: memory.usedJSHeapSize / 1024 / 1024 // Convert to MB

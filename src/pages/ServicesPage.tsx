@@ -288,7 +288,7 @@ const ServicesPage: React.FC = () => {
               transition={{ duration: 0.5 }}
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
             >
-              {filteredServices.filter(service => !service.popular).map((service, index) => (
+              {filteredServices.filter(service => !service.popular).map((service, _index) => (
                 <ServiceCard
                   key={service.id}
                   service={service}

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
 
@@ -64,10 +64,10 @@ const TestimonialsSection: React.FC = () => {
     }
   ];
 
-  const nextTestimonial = () => {
+  const nextTestimonial = useCallback(() => {
     setDirection(1);
     setCurrentIndex((prev) => (prev + 1) % testimonials.length);
-  };
+  }, [testimonials.length]);
 
   const prevTestimonial = () => {
     setDirection(-1);
@@ -81,7 +81,7 @@ const TestimonialsSection: React.FC = () => {
     }, 5000);
 
     return () => clearInterval(timer);
-  }, [currentIndex]);
+  }, [nextTestimonial]);
 
   const currentTestimonial = testimonials[currentIndex];
 

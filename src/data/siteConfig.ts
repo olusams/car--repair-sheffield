@@ -1,14 +1,15 @@
+import { ComponentType } from 'react';
 import { 
+  Facebook, 
+  Twitter, 
+  Instagram, 
+  Linkedin, 
+  Youtube, 
   Users, 
   Clock, 
   Star, 
-  Shield,
-  Award,
-  Facebook,
-  Twitter,
-  Instagram,
-  Linkedin,
-  Youtube
+  Shield, 
+  Award
 } from 'lucide-react';
 
 export interface SiteConfig {
@@ -39,20 +40,20 @@ export interface SiteConfig {
   social: {
     [key: string]: {
       url: string;
-      icon: any;
+      icon: ComponentType<{ className?: string }>;
       label: string;
     };
   };
   stats: {
     label: string;
     number: string;
-    icon: any;
+    icon: ComponentType<{ className?: string }>;
     description?: string;
   }[];
   features: {
     title: string;
     description: string;
-    icon: any;
+    icon: ComponentType<{ className?: string }>;
     color: string;
   }[];
   testimonials: {
@@ -76,7 +77,7 @@ export interface SiteConfig {
       id: string;
       name: string;
       description: string;
-      icon: any;
+      icon: ComponentType<{ className?: string }>;
       color: string;
     }[];
     popular: string[];
