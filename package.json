@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Modern Car Repair and Services Website",
   "private": true,
-  "homepage": "https://olusams.github.io/car--repair-sheffield",
+  "homepage": "/car--repair-sheffield",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
