@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/car--repair-sheffield/static/css/main.170f90be.css",
+    "main.js": "/car--repair-sheffield/static/js/main.23f9cf05.js",
+    "index.html": "/car--repair-sheffield/index.html",
+    "main.170f90be.css.map": "/car--repair-sheffield/static/css/main.170f90be.css.map",
+    "main.23f9cf05.js.map": "/car--repair-sheffield/static/js/main.23f9cf05.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.170f90be.css",
+    "static/js/main.23f9cf05.js"
+  ]
+}
