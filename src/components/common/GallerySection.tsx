@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import OptimizedImage from './OptimizedImage';
-import { galleryItems, GalleryItem } from '../../data/galleryItems';
+import { galleryItems } from '../../data/galleryItems';
 
 interface GallerySectionProps {
   className?: string;
