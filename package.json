@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "description": "Modern Car Repair and Services Website",
   "private": true,
-  "homepage": "/",
+  "homepage": "/car--repair-sheffield",
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "PUBLIC_URL=/car--repair-sheffield react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
