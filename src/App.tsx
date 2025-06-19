@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Link } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import { HelmetProvider } from 'react-helmet-async';
 import Header from './components/layout/Header';
@@ -24,9 +24,9 @@ const NotFoundPage = () => (
       <h1 className="text-6xl font-bold text-cyan-400 mb-4">404</h1>
       <h2 className="text-2xl font-semibold text-white mb-4">Page Not Found</h2>
       <p className="text-gray-300 mb-6">The page you're looking for doesn't exist.</p>
-      <a href="/car--repair-sheffield" className="btn-primary">
+      <Link to="/" className="btn-primary">
         Go Home
-      </a>
+      </Link>
     </div>
   </div>
 );
@@ -51,11 +51,11 @@ function App() {
               <Suspense fallback={<LoadingSpinner size="xl" text="Loading page..." />}>
                 <AnimatePresence mode="wait">
                   <Routes>
-                    <Route path="/car--repair-sheffield" element={<HomePage />} />
-                    <Route path="/car--repair-sheffield/about" element={<AboutPage />} />
-                    <Route path="/car--repair-sheffield/services" element={<ServicesPage />} />
-                    <Route path="/car--repair-sheffield/contact" element={<ContactPage />} />
-                    <Route path="/car--repair-sheffield/appointment" element={<AppointmentPage />} />
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="/about" element={<AboutPage />} />
+                    <Route path="/services" element={<ServicesPage />} />
+                    <Route path="/contact" element={<ContactPage />} />
+                    <Route path="/appointment" element={<AppointmentPage />} />
                     <Route path="*" element={<NotFoundPage />} />
                   </Routes>
                 </AnimatePresence>
