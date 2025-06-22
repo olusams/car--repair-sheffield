@@ -14,7 +14,28 @@ export default defineConfig({
   server: {
     port: 4000,
   },
+  preview: {
+    port: 4000,
+  },
   build: {
     outDir: 'dist',
+    sourcemap: false,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom'],
+          router: ['react-router-dom'],
+          animations: ['framer-motion'],
+          icons: ['lucide-react']
+        }
+      }
+    }
   },
+  base: process.env.NODE_ENV === 'production' ? '/' : '/',
+  define: {
+    'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
+  },
+  // Prevent Vite from looking outside the project directory
+  clearScreen: false,
+  logLevel: 'info'
 }) 

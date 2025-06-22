@@ -5,7 +5,4 @@
 [[redirects]]
   from = "/*"
   to = "/index.html"
-  status = 200
-
-[build.environment]
-  PUBLIC_URL = "/car--repair-sheffield" 
+  status = 200 

@@ -22,10 +22,29 @@ async function customBuild() {
       server: {
         port: 4000,
       },
+      preview: {
+        port: 4000,
+      },
       build: {
         outDir: 'dist',
         sourcemap: false,
+        rollupOptions: {
+          output: {
+            manualChunks: {
+              vendor: ['react', 'react-dom'],
+              router: ['react-router-dom'],
+              animations: ['framer-motion'],
+              icons: ['lucide-react']
+            }
+          }
+        }
       },
+      base: '/',
+      define: {
+        'process.env.NODE_ENV': JSON.stringify('production')
+      },
+      clearScreen: false,
+      logLevel: 'info'
     })
     
     console.log('✅ Build completed successfully!')
