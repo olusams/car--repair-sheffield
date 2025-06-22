@@ -3,6 +3,8 @@ export interface Video {
   title: string;
   description: string;
   src: string;
+  fallbackSrc?: string; // Fallback video source
+  webmSrc?: string; // WebM format for better compatibility
   thumbnail?: string;
   duration?: string;
   category: 'repair' | 'maintenance' | 'diagnostics' | 'general';
@@ -14,6 +16,8 @@ export const videos: Video[] = [
     title: 'Modern Auto Diagnostics & Repair',
     description: 'Watch our certified technicians using advanced diagnostic equipment and modern technology to ensure precise repairs and optimal vehicle performance.',
     src: '/videos/vecteezy_young-car-mechanic-using-laptop-at-the-garage_35289755.mp4',
+    fallbackSrc: 'https://www.w3schools.com/html/mov_bbb.mp4',
+    webmSrc: 'https://www.w3schools.com/html/mov_bbb.webm',
     category: 'general'
   },
   {
@@ -21,6 +25,7 @@ export const videos: Video[] = [
     title: 'Test Video (Working MP4)',
     description: 'Test video to verify video component functionality.',
     src: 'https://www.w3schools.com/html/mov_bbb.mp4',
+    fallbackSrc: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
     category: 'general'
   },
   {
@@ -28,6 +33,7 @@ export const videos: Video[] = [
     title: 'Advanced Engine Diagnostics',
     description: 'See our state-of-the-art diagnostic equipment in action, ensuring accurate problem identification and efficient repairs.',
     src: '/videos/vecteezy_young-car-mechanic-using-laptop-at-the-garage_35289755.mp4',
+    fallbackSrc: 'https://www.w3schools.com/html/mov_bbb.mp4',
     category: 'diagnostics'
   },
   {
@@ -35,6 +41,7 @@ export const videos: Video[] = [
     title: 'Brake System Inspection & Repair',
     description: 'Professional brake system maintenance and repair procedures to ensure your vehicle\'s safety and performance.',
     src: '/videos/vecteezy_young-car-mechanic-using-laptop-at-the-garage_35289755.mp4',
+    fallbackSrc: 'https://www.w3schools.com/html/mov_bbb.mp4',
     category: 'repair'
   },
   {
@@ -42,6 +49,7 @@ export const videos: Video[] = [
     title: 'Complete Oil Change Service',
     description: 'Professional oil change service with quality checks, filter replacement, and maintenance recommendations.',
     src: '/videos/vecteezy_young-car-mechanic-using-laptop-at-the-garage_35289755.mp4',
+    fallbackSrc: 'https://www.w3schools.com/html/mov_bbb.mp4',
     category: 'maintenance'
   }
 ];

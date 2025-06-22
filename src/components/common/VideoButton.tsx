@@ -7,6 +7,8 @@ import { getVideoById } from '../../data/videos';
 interface VideoButtonProps {
   videoId?: string;
   videoSrc?: string;
+  fallbackSrc?: string;
+  webmSrc?: string;
   title?: string;
   description?: string;
   className?: string;
@@ -17,6 +19,8 @@ interface VideoButtonProps {
 const VideoButton: React.FC<VideoButtonProps> = ({
   videoId,
   videoSrc,
+  fallbackSrc,
+  webmSrc,
   title,
   description,
   className = '',
@@ -29,6 +33,8 @@ const VideoButton: React.FC<VideoButtonProps> = ({
   // Get video data from ID or use provided props
   const videoData = videoId ? getVideoById(videoId) : null;
   const finalVideoSrc = videoSrc || videoData?.src;
+  const finalFallbackSrc = fallbackSrc || videoData?.fallbackSrc;
+  const finalWebmSrc = webmSrc || videoData?.webmSrc;
   const finalTitle = title || videoData?.title;
   const finalDescription = description || videoData?.description;
 
@@ -68,47 +74,18 @@ const VideoButton: React.FC<VideoButtonProps> = ({
             aspectRatio: '16/9',
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'center'
+            justifyContent: 'center',
+            cursor: 'pointer',
           }}
         >
           {/* Background gradient overlay */}
           <div style={{
             position: 'absolute',
             inset: 0,
-            background: 'linear-gradient(45deg, rgba(251, 191, 36, 0.1), rgba(249, 115, 22, 0.1))'
+            background: 'linear-gradient(45deg, rgba(251, 191, 36, 0.08), rgba(249, 115, 22, 0.08))'
           }} />
-          
-          {/* Hover overlay */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: isHovered ? 1 : 0 }}
-            transition={{ duration: 0.3 }}
-            style={{
-              position: 'absolute',
-              inset: 0,
-              background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(37, 99, 235, 0.2))',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center'
-            }}
-          >
-            <div style={{
-              background: 'rgba(255, 255, 255, 0.9)',
-              borderRadius: '12px',
-              padding: '8px 16px',
-              color: '#1e293b',
-              fontSize: '0.875rem',
-              fontWeight: '600',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '8px'
-            }}>
-              <Play className="w-4 h-4" />
-              Click to Watch
-            </div>
-          </motion.div>
-          
-          {/* Play button */}
+
+          {/* Play button (main CTA) */}
           <motion.div
             animate={{ 
               scale: isHovered ? [1, 1.1, 1] : [1, 1.05, 1],
@@ -120,68 +97,38 @@ const VideoButton: React.FC<VideoButtonProps> = ({
               ease: "easeInOut"
             }}
             style={{
-              width: '80px',
-              height: '80px',
+              width: '90px',
+              height: '90px',
               borderRadius: '50%',
               background: 'linear-gradient(135deg, #fbbf24 0%, #f97316 100%)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               boxShadow: '0 10px 30px rgba(251, 191, 36, 0.3)',
-              zIndex: 10
+              zIndex: 10,
+              cursor: 'pointer',
+              border: isHovered ? '3px solid #fff' : 'none',
+              transition: 'border 0.2s',
             }}
           >
-            <motion.div
-              animate={{ x: isHovered ? 2 : 0 }}
-              transition={{ duration: 0.2 }}
-              style={{
-                width: '0',
-                height: '0',
-                borderLeft: '20px solid white',
-                borderTop: '12px solid transparent',
-                borderBottom: '12px solid transparent',
-                marginLeft: '4px'
-              }}
-            />
+            <Play className="w-10 h-10" color="#fff" />
             <motion.div
               className="absolute inset-0"
               animate={{ rotate: 360 }}
               transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+              style={{ pointerEvents: 'none' }}
             >
-              <Sparkles className="w-5 h-5 text-yellow-300 opacity-50" />
+              <Sparkles className="w-5 h-5 text-yellow-300 opacity-40" />
             </motion.div>
           </motion.div>
-          
-          {/* Bottom info bar */}
-          <div style={{
-            position: 'absolute',
-            bottom: '20px',
-            left: '20px',
-            right: '20px',
-            background: 'rgba(0, 0, 0, 0.7)',
-            backdropFilter: 'blur(10px)',
-            borderRadius: '12px',
-            padding: '12px 16px',
-            zIndex: 10
-          }}>
-            <div style={{ 
-              color: 'white', 
-              fontSize: '0.875rem', 
-              fontWeight: '600',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between'
-            }}>
-              <span>Click to watch our work in action</span>
-              <ExternalLink className="w-4 h-4 opacity-70" />
-            </div>
-          </div>
         </motion.div>
 
         <VideoModal
           isOpen={isModalOpen}
           onClose={() => setIsModalOpen(false)}
           videoSrc={finalVideoSrc}
+          fallbackSrc={finalFallbackSrc}
+          webmSrc={finalWebmSrc}
           title={finalTitle}
           description={finalDescription}
         />
@@ -238,6 +185,8 @@ const VideoButton: React.FC<VideoButtonProps> = ({
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         videoSrc={finalVideoSrc}
+        fallbackSrc={finalFallbackSrc}
+        webmSrc={finalWebmSrc}
         title={finalTitle}
         description={finalDescription}
       />
