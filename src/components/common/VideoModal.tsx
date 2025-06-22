@@ -83,21 +83,23 @@ const VideoModal: React.FC<VideoModalProps> = ({
       left: 0,
       right: 0,
       bottom: 0,
-      background: 'rgba(0,0,0,0.9)',
+      background: 'rgba(0,0,0,0.95)',
       zIndex: 10000,
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      padding: '20px'
+      padding: '10px'
     }}>
       <div style={{ 
         background: 'black', 
-        borderRadius: 12,
-        maxWidth: 800,
+        borderRadius: '12px',
+        maxWidth: '95vw',
+        maxHeight: '95vh',
         width: '100%',
-        position: 'relative'
+        position: 'relative',
+        overflow: 'hidden'
       }}>
-        {/* Header */}
+        {/* Header - Only show on larger screens */}
         <div style={{
           position: 'absolute',
           top: 0,
@@ -106,12 +108,22 @@ const VideoModal: React.FC<VideoModalProps> = ({
           padding: '20px',
           background: 'linear-gradient(to bottom, rgba(0,0,0,0.8), transparent)',
           zIndex: 10,
-          color: 'white'
+          color: 'white',
+          display: window.innerWidth > 768 ? 'block' : 'none'
         }}>
-          <h2 style={{ fontSize: '24px', fontWeight: 'bold', marginBottom: '8px' }}>
+          <h2 style={{ 
+            fontSize: 'clamp(18px, 4vw, 24px)', 
+            fontWeight: 'bold', 
+            marginBottom: '8px',
+            lineHeight: '1.2'
+          }}>
             {title}
           </h2>
-          <p style={{ fontSize: '14px', opacity: 0.8 }}>
+          <p style={{ 
+            fontSize: 'clamp(12px, 3vw, 14px)', 
+            opacity: 0.8,
+            lineHeight: '1.4'
+          }}>
             {description}
           </p>
         </div>
@@ -121,9 +133,9 @@ const VideoModal: React.FC<VideoModalProps> = ({
           onClick={onClose}
           style={{
             position: 'absolute',
-            top: '20px',
-            right: '20px',
-            background: 'rgba(0,0,0,0.5)',
+            top: '10px',
+            right: '10px',
+            background: 'rgba(0,0,0,0.7)',
             color: 'white',
             border: 'none',
             borderRadius: '50%',
@@ -131,7 +143,11 @@ const VideoModal: React.FC<VideoModalProps> = ({
             height: '40px',
             cursor: 'pointer',
             zIndex: 20,
-            fontSize: '18px'
+            fontSize: '18px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            backdropFilter: 'blur(10px)'
           }}
         >
           ✕
@@ -141,7 +157,9 @@ const VideoModal: React.FC<VideoModalProps> = ({
         <div style={{
           position: 'relative',
           aspectRatio: '16/9',
-          background: '#000'
+          background: '#000',
+          width: '100%',
+          height: 'auto'
         }}>
           {isLoading && !hasError && (
             <div style={{
@@ -166,7 +184,7 @@ const VideoModal: React.FC<VideoModalProps> = ({
                   animation: 'spin 1s linear infinite',
                   margin: '0 auto 16px'
                 }} />
-                <p>Loading video...</p>
+                <p style={{ fontSize: '14px' }}>Loading...</p>
               </div>
             </div>
           )}
@@ -183,9 +201,9 @@ const VideoModal: React.FC<VideoModalProps> = ({
             }}>
               <div>
                 <div style={{ fontSize: '48px', marginBottom: '16px' }}>🎥</div>
-                <h3>Video Unavailable</h3>
-                <p>Sorry, this video cannot be played at the moment.</p>
-                <div style={{ marginTop: '16px' }}>
+                <h3 style={{ fontSize: '18px', marginBottom: '8px' }}>Video Unavailable</h3>
+                <p style={{ fontSize: '14px', marginBottom: '16px' }}>Sorry, this video cannot be played at the moment.</p>
+                <div style={{ display: 'flex', gap: '8px', justifyContent: 'center', flexWrap: 'wrap' }}>
                   <button 
                     onClick={handleRetry}
                     style={{
@@ -195,7 +213,7 @@ const VideoModal: React.FC<VideoModalProps> = ({
                       padding: '8px 16px',
                       borderRadius: '4px',
                       cursor: 'pointer',
-                      marginRight: '8px'
+                      fontSize: '14px'
                     }}
                   >
                     Try Again
@@ -213,7 +231,8 @@ const VideoModal: React.FC<VideoModalProps> = ({
                         border: 'none',
                         padding: '8px 16px',
                         borderRadius: '4px',
-                        cursor: 'pointer'
+                        cursor: 'pointer',
+                        fontSize: '14px'
                       }}
                     >
                       Use Fallback
@@ -225,7 +244,7 @@ const VideoModal: React.FC<VideoModalProps> = ({
           ) : (
             <video
               ref={videoRef}
-              key={currentSrc} // Force reload when source changes
+              key={currentSrc}
               style={{
                 width: '100%',
                 height: '100%',
@@ -249,34 +268,6 @@ const VideoModal: React.FC<VideoModalProps> = ({
               {fallbackSrc && <source src={fallbackSrc} type="video/mp4" />}
               Your browser does not support the video tag.
             </video>
-          )}
-          
-          {/* Video Overlay */}
-          <div style={{
-            position: 'absolute',
-            inset: 0,
-            background: 'linear-gradient(to top, rgba(0,0,0,0.6), transparent)',
-            pointerEvents: 'none'
-          }} />
-        </div>
-
-        {/* Footer Info */}
-        <div style={{
-          padding: '20px',
-          color: 'white',
-          fontSize: '14px',
-          opacity: 0.7
-        }}>
-          <div>Video Source: {currentSrc}</div>
-          {fallbackSrc && currentSrc === fallbackSrc && (
-            <div style={{ color: '#10b981', marginTop: '4px' }}>
-              Using fallback video source
-            </div>
-          )}
-          {webmSrc && currentSrc === webmSrc && (
-            <div style={{ color: '#8b5cf6', marginTop: '4px' }}>
-              Using WebM format for better compatibility
-            </div>
           )}
         </div>
       </div>
