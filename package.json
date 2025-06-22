@@ -1,46 +1,39 @@
 {
   "name": "malen-car-repair-modern",
   "version": "1.0.0",
-  "description": "Modern Car Repair and Services Website",
-  "private": true,
+  "type": "module",
+  "description": "Modern car repair and services website built with React and Tailwind CSS",
   "scripts": {
-    "dev": "parcel src/index.tsx",
-    "build": "parcel build src/index.tsx",
-    "preview": "parcel serve dist/index.html",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
+    "dev": "node dev-static.js",
+    "build": "node build-custom.js",
+    "preview": "vite preview --port 4000",
+    "lint": "eslint src",
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "@headlessui/react": "^1.7.17",
-    "axios": "^1.6.2",
-    "clsx": "^2.0.0",
-    "framer-motion": "^10.16.16",
-    "lodash": "^4.17.21",
-    "lucide-react": "^0.294.0",
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "@tailwindcss/forms": "^0.5.7",
+    "@tailwindcss/typography": "^0.5.10",
+    "framer-motion": "^10.16.4",
+    "lucide-react": "^0.263.1",
     "react": "^18.2.0",
+    "react-datepicker": "^8.4.0",
     "react-dom": "^18.2.0",
-    "react-helmet-async": "^1.3.0",
-    "react-hook-form": "^7.48.2",
-    "react-intersection-observer": "^9.5.3",
-    "react-query": "^3.39.3",
-    "react-router-dom": "^6.20.1",
-    "swiper": "^11.0.5"
+    "react-helmet-async": "^2.0.5",
+    "react-router-dom": "^6.8.1"
   },
   "devDependencies": {
-    "@types/lodash": "^4.14.202",
     "@types/node": "^24.0.3",
-    "@types/react": "^18.2.45",
-    "@types/react-dom": "^18.2.18",
-    "@typescript-eslint/eslint-plugin": "^8.34.1",
-    "@typescript-eslint/parser": "^8.34.1",
-    "autoprefixer": "^10.4.16",
-    "eslint": "^9.29.0",
-    "eslint-config-typescript": "^3.0.0",
-    "eslint-plugin-react-hooks": "^5.2.0",
+    "@types/react": "^18.2.15",
+    "@types/react-dom": "^18.2.7",
+    "@vitejs/plugin-react": "^4.5.2",
+    "autoprefixer": "^10.4.21",
+    "eslint": "^8.45.0",
+    "eslint-config-react-app": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.4.20",
-    "parcel": "^2.12.0",
-    "postcss": "^8.4.32",
-    "tailwindcss": "^3.3.6",
-    "typescript": "^5.2.2"
-  },
-  "type": "module"
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.0.4",
+    "vite": "^6.3.5"
+  }
 }

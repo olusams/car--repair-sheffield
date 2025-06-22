@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { MapPin, Phone, Mail, Clock, MessageSquare, Send } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, MessageSquare } from 'lucide-react';
 import ContactForm from '../components/common/ContactForm';
 import { siteConfig } from '../data/siteConfig';
 
@@ -67,82 +67,302 @@ const ContactPage: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-light">
-      {/* Enhanced Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 text-white">
-        {/* Enhanced Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 via-purple-600/20 to-pink-600/20"></div>
-        <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, rgba(59, 130, 246, 0.1) 1px, transparent 0)`,
-          backgroundSize: '40px 40px'
+    <div style={{ 
+      minHeight: 'calc(100vh - 80px)', 
+      background: '#f8fafc',
+      width: '100%'
+    }}>
+      {/* Hero Section */}
+      <section style={{ 
+        position: 'relative', 
+        overflow: 'hidden',
+        paddingTop: '40px',
+        background: 'linear-gradient(135deg, #1e3a8a 0%, #3730a3 50%, #7c3aed 100%)'
+      }}>
+        {/* Background Overlays */}
+        <div style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          background: 'linear-gradient(to bottom right, rgba(0,0,0,0.4), transparent, rgba(0,0,0,0.3))'
+        }}></div>
+        <div style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          background: 'linear-gradient(to top, rgba(0,0,0,0.5), transparent)'
+        }}></div>
+        <div style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          background: 'linear-gradient(to right, rgba(0,0,0,0.2), transparent, rgba(0,0,0,0.2))'
+        }}></div>
+        
+        {/* Pattern Overlay */}
+        <div style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          opacity: 0.1,
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.3'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
         }}></div>
         
         {/* Floating Elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-20 left-10 w-32 h-32 bg-blue-400/10 rounded-full blur-3xl animate-float"></div>
-          <div className="absolute bottom-20 right-10 w-40 h-40 bg-purple-400/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
-          <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-yellow-400/10 rounded-full blur-2xl animate-float" style={{ animationDelay: '1s' }}></div>
+        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, overflow: 'hidden' }}>
+          <div style={{
+            position: 'absolute',
+            top: '20px',
+            left: '40px',
+            width: '128px',
+            height: '128px',
+            background: 'rgba(255,255,255,0.15)',
+            borderRadius: '50%',
+            filter: 'blur(24px)',
+            animation: 'float 6s ease-in-out infinite'
+          }}></div>
+          <div style={{
+            position: 'absolute',
+            bottom: '80px',
+            right: '40px',
+            width: '160px',
+            height: '160px',
+            background: 'rgba(255,255,255,0.15)',
+            borderRadius: '50%',
+            filter: 'blur(24px)',
+            animation: 'float 6s ease-in-out infinite 2s'
+          }}></div>
         </div>
         
-        <div className="container-custom relative z-10 py-20">
+        <div style={{ 
+          maxWidth: '1200px', 
+          margin: '0 auto', 
+          padding: '0 clamp(1rem, 4vw, 2rem)', 
+          position: 'relative',
+          zIndex: 10,
+          paddingTop: '5rem',
+          paddingBottom: '5rem'
+        }}>
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center"
+            style={{ textAlign: 'center' }}
           >
-            <h1 className="font-display font-bold text-4xl md:text-6xl mb-6">
-              Get in <span className="text-gradient-hero">Touch</span>
+            {/* Badge */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                background: 'rgba(255,255,255,0.2)',
+                backdropFilter: 'blur(12px)',
+                borderRadius: '9999px',
+                padding: '12px 24px',
+                marginBottom: '32px',
+                border: '1px solid rgba(255,255,255,0.3)',
+                boxShadow: '0 10px 25px rgba(0,0,0,0.2)'
+              }}
+            >
+              <MessageSquare style={{ width: '20px', height: '20px', color: 'white' }} />
+              <span style={{
+                fontSize: '14px',
+                fontWeight: 'bold',
+                color: 'white',
+                letterSpacing: '0.05em'
+              }}>CONTACT US</span>
+            </motion.div>
+            
+            {/* Main Heading */}
+            <h1 style={{
+              fontFamily: 'Playfair Display, serif',
+              fontWeight: '800',
+              fontSize: 'clamp(2rem, 4vw, 3.5rem)',
+              marginBottom: '24px',
+              color: 'white',
+              textShadow: '0 4px 8px rgba(0,0,0,0.5), 0 2px 4px rgba(0,0,0,0.3)',
+              letterSpacing: '-0.02em'
+            }}>
+              Get in <span style={{
+                background: 'linear-gradient(135deg, #fbbf24 0%, #f97316 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+                textShadow: '0 4px 8px rgba(0,0,0,0.5), 0 2px 4px rgba(0,0,0,0.3)'
+              }}>Touch</span>
             </h1>
-            <p className="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
+            
+            {/* Subtitle */}
+            <p style={{
+              fontSize: 'clamp(1.125rem, 2.5vw, 1.25rem)',
+              color: 'rgba(255,255,255,0.95)',
+              maxWidth: '768px',
+              margin: '0 auto 32px auto',
+              lineHeight: '1.7',
+              textShadow: '0 2px 4px rgba(0,0,0,0.3)',
+              fontWeight: '500'
+            }}>
               Ready to schedule your appointment or have questions? We're here to help you with all your automotive needs.
             </p>
+            
+            {/* CTA Buttons */}
+            <div style={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '16px',
+              justifyContent: 'center',
+              alignItems: 'center'
+            }}>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                style={{
+                  background: 'white',
+                  color: '#1e3a8a',
+                  padding: '16px 32px',
+                  borderRadius: '9999px',
+                  fontWeight: 'bold',
+                  boxShadow: '0 10px 25px rgba(0,0,0,0.2)',
+                  border: 'none',
+                  cursor: 'pointer',
+                  transition: 'all 0.3s ease'
+                }}
+              >
+                Schedule Appointment
+              </motion.button>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                style={{
+                  border: '2px solid white',
+                  color: 'white',
+                  padding: '16px 32px',
+                  borderRadius: '9999px',
+                  fontWeight: 'bold',
+                  background: 'transparent',
+                  cursor: 'pointer',
+                  transition: 'all 0.3s ease'
+                }}
+              >
+                Call Now
+              </motion.button>
+            </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Contact Information */}
-      <section className="section-padding bg-white relative overflow-hidden">
-        <div className="container-custom relative z-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {/* Contact Information Section */}
+      <section style={{ 
+        padding: 'clamp(5rem, 10vw, 8rem) 0', 
+        background: 'white',
+        position: 'relative',
+        overflow: 'hidden'
+      }}>
+        <div style={{ 
+          maxWidth: '1200px', 
+          margin: '0 auto', 
+          padding: '0 clamp(1rem, 4vw, 2rem)', 
+          position: 'relative',
+          zIndex: 10
+        }}>
+          {/* Section Header */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            style={{ textAlign: 'center', marginBottom: '64px' }}
+          >
+            <h2 style={{
+              fontFamily: 'Playfair Display, serif',
+              fontWeight: '800',
+              fontSize: 'clamp(2rem, 4vw, 2.5rem)',
+              marginBottom: '24px',
+              color: '#111827',
+              textShadow: '0 2px 4px rgba(0,0,0,0.1)'
+            }}>
+              Get in <span style={{
+                background: 'linear-gradient(135deg, #2563eb 0%, #7c3aed 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text'
+              }}>Touch</span>
+            </h2>
+            <p style={{
+              fontSize: '18px',
+              color: '#6b7280',
+              maxWidth: '512px',
+              margin: '0 auto',
+              lineHeight: '1.6'
+            }}>
+              Multiple ways to reach us. We're here to help with all your automotive needs.
+            </p>
+          </motion.div>
+          
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gap: '32px'
+          }}>
             {contactInfo.map((info, index) => (
               <motion.div
                 key={info.title}
                 initial={{ opacity: 0, y: 50, scale: 0.9 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                transition={{ duration: 0.8, delay: index * 0.1, type: "spring", stiffness: 100 }}
+                transition={{ duration: 0.8, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="group"
+                style={{
+                  background: 'white',
+                  borderRadius: '16px',
+                  padding: '32px',
+                  boxShadow: '0 4px 6px rgba(0, 0, 0, 0.05)',
+                  border: '1px solid #e5e7eb',
+                  textAlign: 'center',
+                  transition: 'all 0.3s ease'
+                }}
               >
-                <div className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover-lift border border-gray-100 relative overflow-hidden">
-                  {/* Enhanced Background Effect */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${info.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}></div>
-                  
-                  {/* Enhanced Icon */}
-                  <div className="relative mb-6">
-                    <div className={`w-16 h-16 bg-gradient-to-br ${info.color} rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 hover-glow`}>
-                      <info.icon className="w-8 h-8 text-white group-hover:scale-110 transition-transform duration-300" />
-                    </div>
-                    <div className={`absolute inset-0 bg-gradient-to-br ${info.color} rounded-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-500 blur-xl scale-150`}></div>
-                  </div>
-
-                  {/* Enhanced Content */}
-                  <h3 className="text-2xl font-bold mb-4 text-gray-900 group-hover:text-gradient transition-all duration-300">
-                    {info.title}
-                  </h3>
-                  <div className="space-y-2">
-                    {info.details.map((detail, detailIndex) => (
-                      <p key={detailIndex} className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
-                        {detail}
-                      </p>
-                    ))}
-                  </div>
-
-                  {/* Enhanced Corner Accents */}
-                  <div className="absolute top-0 left-0 w-8 h-8 border-l-2 border-t-2 border-transparent group-hover:border-blue-500 transition-all duration-500 rounded-tl-3xl"></div>
-                  <div className="absolute top-0 right-0 w-8 h-8 border-r-2 border-t-2 border-transparent group-hover:border-blue-500 transition-all duration-500 rounded-tr-3xl"></div>
-                  <div className="absolute bottom-0 left-0 w-8 h-8 border-l-2 border-b-2 border-transparent group-hover:border-blue-500 transition-all duration-500 rounded-bl-3xl"></div>
-                  <div className="absolute bottom-0 right-0 w-8 h-8 border-r-2 border-b-2 border-transparent group-hover:border-blue-500 transition-all duration-500 rounded-br-3xl"></div>
+                <div style={{
+                  width: '64px',
+                  height: '64px',
+                  background: `linear-gradient(135deg, ${info.color.split(' ')[1]} 0%, ${info.color.split(' ')[3]} 100%)`,
+                  borderRadius: '16px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  margin: '0 auto 24px auto'
+                }}>
+                  <info.icon style={{ width: '28px', height: '28px', color: 'white' }} />
+                </div>
+                <h3 style={{
+                  fontSize: '20px',
+                  fontWeight: '700',
+                  color: '#111827',
+                  marginBottom: '16px'
+                }}>
+                  {info.title}
+                </h3>
+                <div>
+                  {info.details.map((detail, idx) => (
+                    <p key={idx} style={{
+                      color: '#6b7280',
+                      fontSize: '16px',
+                      lineHeight: '1.6',
+                      marginBottom: idx < info.details.length - 1 ? '8px' : '0'
+                    }}>
+                      {detail}
+                    </p>
+                  ))}
                 </div>
               </motion.div>
             ))}
@@ -151,118 +371,100 @@ const ContactPage: React.FC = () => {
       </section>
 
       {/* Contact Form Section */}
-      <section className="section-padding bg-gradient-to-br from-gray-50 via-blue-50/30 to-purple-50/30 relative overflow-hidden">
-        <div className="container-custom relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <section style={{ 
+        padding: 'clamp(5rem, 10vw, 8rem) 0', 
+        background: '#f8fafc',
+        position: 'relative'
+      }}>
+        <div style={{ 
+          maxWidth: '1200px', 
+          margin: '0 auto', 
+          padding: '0 clamp(1rem, 4vw, 2rem)'
+        }}>
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: '1fr 1fr',
+            gap: '64px',
+            alignItems: 'start'
+          }}>
+            {/* Contact Form */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-full px-6 py-2 mb-6">
-                <MessageSquare className="w-4 h-4" />
-                <span className="text-sm font-bold">SEND US A MESSAGE</span>
-              </div>
-              <h2 className="font-display font-bold text-4xl md:text-5xl mb-6">
-                Ready to <span className="text-gradient">Get Started</span>?
+              <h2 style={{
+                fontFamily: 'Playfair Display, serif',
+                fontWeight: '800',
+                fontSize: 'clamp(1.875rem, 3vw, 2.25rem)',
+                marginBottom: '16px',
+                color: '#111827'
+              }}>
+                Send us a Message
               </h2>
-              <p className="text-xl text-secondary-600 mb-8 leading-relaxed">
-                Fill out the form below and we'll get back to you as soon as possible. We're here to help with all your automotive needs.
+              <p style={{
+                color: '#6b7280',
+                fontSize: '16px',
+                marginBottom: '32px',
+                lineHeight: '1.6'
+              }}>
+                Have a question or need to schedule an appointment? Fill out the form below and we'll get back to you as soon as possible.
               </p>
-              
-              <div className="space-y-6">
-                {[
-                  {
-                    icon: Send,
-                    title: "Quick Response",
-                    description: "We respond to all inquiries within 24 hours"
-                  },
-                  {
-                    icon: Clock,
-                    title: "Flexible Scheduling",
-                    description: "Book appointments that work with your schedule"
-                  },
-                  {
-                    icon: MessageSquare,
-                    title: "Multiple Contact Options",
-                    description: "Call, email, or use our online form"
-                  }
-                ].map((feature, index) => (
-                  <motion.div
-                    key={feature.title}
-                    initial={{ opacity: 0, x: -30 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                    className="flex items-center space-x-4 group"
-                  >
-                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
-                      <feature.icon className="w-6 h-6 text-white group-hover:scale-110 transition-transform duration-300" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-gray-900 group-hover:text-gradient transition-colors duration-300">
-                        {feature.title}
-                      </h3>
-                      <p className="text-gray-600 group-hover:text-gray-700 transition-colors duration-300">
-                        {feature.description}
-                      </p>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
+              <ContactForm />
             </motion.div>
 
+            {/* FAQ Section */}
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <ContactForm />
+              <h2 style={{
+                fontFamily: 'Playfair Display, serif',
+                fontWeight: '800',
+                fontSize: 'clamp(1.875rem, 3vw, 2.25rem)',
+                marginBottom: '32px',
+                color: '#111827'
+              }}>
+                Frequently Asked Questions
+              </h2>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+                {faqs.map((faq, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                    style={{
+                      background: 'white',
+                      borderRadius: '12px',
+                      padding: '24px',
+                      boxShadow: '0 2px 4px rgba(0, 0, 0, 0.05)',
+                      border: '1px solid #e5e7eb'
+                    }}
+                  >
+                    <h3 style={{
+                      fontSize: '18px',
+                      fontWeight: '600',
+                      color: '#111827',
+                      marginBottom: '12px'
+                    }}>
+                      {faq.question}
+                    </h3>
+                    <p style={{
+                      color: '#6b7280',
+                      fontSize: '16px',
+                      lineHeight: '1.6'
+                    }}>
+                      {faq.answer}
+                    </p>
+                  </motion.div>
+                ))}
+              </div>
             </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ Section */}
-      <section className="section-padding bg-white relative overflow-hidden">
-        <div className="container-custom relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="font-display font-bold text-4xl md:text-5xl mb-6">
-              Frequently Asked <span className="text-gradient">Questions</span>
-            </h2>
-            <p className="text-xl text-secondary-600 max-w-3xl mx-auto leading-relaxed">
-              Find answers to common questions about our services and policies
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {faqs.map((faq, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 50, scale: 0.9 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                transition={{ duration: 0.8, delay: index * 0.1, type: "spring", stiffness: 100 }}
-                viewport={{ once: true }}
-                className="group"
-              >
-                <div className="bg-gray-50 rounded-3xl p-8 hover:bg-white hover:shadow-lg transition-all duration-500 border border-gray-100">
-                  <h3 className="text-xl font-bold mb-4 text-gray-900 group-hover:text-gradient transition-all duration-300">
-                    {faq.question}
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
-                    {faq.answer}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
           </div>
         </div>
       </section>

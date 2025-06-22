@@ -1,19 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { 
-  Phone, 
-  Mail, 
-  MapPin, 
-  Clock,
-  Star,
-  Award,
-  Facebook,
-  Twitter,
-  Instagram,
-  Linkedin,
-  Youtube
-} from 'lucide-react';
+import { Phone, Mail, MapPin } from 'lucide-react';
 import { siteConfig } from '../../data/siteConfig';
 
 const Footer: React.FC = () => {
@@ -24,308 +12,376 @@ const Footer: React.FC = () => {
       { name: 'Engine Repair', href: '/services#engine-repair' },
       { name: 'Brake Service', href: '/services#brake-service' },
       { name: 'Oil Change', href: '/services#oil-change' },
-      { name: 'Transmission Service', href: '/services#transmission' },
-      { name: 'Electrical Systems', href: '/services#electrical' },
+      { name: 'Transmission', href: '/services#transmission' },
       { name: 'AC/Heating', href: '/services#ac-heating' }
-    ],
-    company: [
-      { name: 'About Us', href: '/about' },
-      { name: 'Our Team', href: '/about#team' },
-      { name: 'Certifications', href: '/about#certifications' },
-      { name: 'Careers', href: '/careers' },
-      { name: 'News & Updates', href: '/blog' },
-      { name: 'Contact Us', href: '/contact' }
-    ],
-    support: [
-      { name: 'Appointments', href: '/appointment' },
-      { name: 'Emergency Service', href: '/contact' },
-      { name: 'Warranty Information', href: '/warranty' },
-      { name: 'Service History', href: '/account' },
-      { name: 'FAQ', href: '/faq' },
-      { name: 'Customer Support', href: '/contact' }
     ]
   };
 
   return (
-    <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white relative overflow-hidden">
-      {/* Enhanced Background Elements */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 via-purple-600/10 to-pink-600/10"></div>
-      <div className="absolute inset-0" style={{
-        backgroundImage: `radial-gradient(circle at 1px 1px, rgba(59, 130, 246, 0.1) 1px, transparent 0)`,
-        backgroundSize: '40px 40px'
-      }}></div>
-      
-      {/* Floating Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 left-10 w-32 h-32 bg-blue-400/5 rounded-full blur-3xl animate-float"></div>
-        <div className="absolute bottom-20 right-10 w-40 h-40 bg-purple-400/5 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-yellow-400/5 rounded-full blur-2xl animate-float" style={{ animationDelay: '1s' }}></div>
-      </div>
-
-      <div className="container-custom relative z-10">
-        {/* Main Footer Content */}
-        <div className="py-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {/* Company Info */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="lg:col-span-1"
-            >
-              <div className="flex items-center space-x-3 mb-6">
-                <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl flex items-center justify-center shadow-lg">
-                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
+    <footer style={{
+      background: 'linear-gradient(135deg, #1e293b 0%, #334155 100%)',
+      color: 'white',
+      position: 'relative',
+      overflow: 'hidden'
+    }}>
+      <div style={{
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        background: 'url("data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.02"%3E%3Ccircle cx="30" cy="30" r="2"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")',
+        opacity: 0.5
+      }} />
+      <div style={{
+        maxWidth: '1200px',
+        margin: '0 auto',
+        padding: '80px 24px 40px',
+        position: 'relative',
+        zIndex: 1
+      }}>
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+          gap: '60px',
+          marginBottom: '60px'
+        }}>
+          {/* Contact Info - moved to first column */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <h4 style={{
+              fontSize: '1.25rem',
+              fontWeight: '700',
+              margin: '0 0 24px 0',
+              color: 'white',
+              fontFamily: 'Playfair Display, serif'
+            }}>Contact Us</h4>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+              <motion.div 
+                whileHover={{ x: 8 }}
+                transition={{ duration: 0.3 }}
+                style={{ display: 'flex', alignItems: 'flex-start', gap: '16px' }}
+              >
+                <div style={{
+                  width: '48px',
+                  height: '48px',
+                  background: 'linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%)',
+                  borderRadius: '14px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  flexShrink: 0,
+                  boxShadow: '0 4px 16px rgba(14, 165, 233, 0.3)',
+                  transition: 'all 0.3s ease'
+                }}>
+                  <Phone className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold">{siteConfig.business.name}</h3>
-                  <p className="text-gray-400 text-sm">{siteConfig.business.tagline}</p>
+                  <p style={{ 
+                    color: 'rgba(255, 255, 255, 0.7)', 
+                    margin: '0 0 4px 0',
+                    fontSize: '0.875rem',
+                    fontWeight: '500'
+                  }}>Phone</p>
+                  <a href={`tel:${siteConfig.contact.phone}`} style={{
+                    color: 'white',
+                    textDecoration: 'none',
+                    transition: 'all 0.3s ease',
+                    fontSize: '1rem',
+                    fontWeight: '600',
+                    display: 'inline-block'
+                  }}>
+                    {siteConfig.contact.phone}
+                  </a>
                 </div>
-              </div>
+              </motion.div>
               
-              <p className="text-gray-300 mb-6 leading-relaxed">
-                {siteConfig.business.description}
-              </p>
-
-              {/* Certifications */}
-              <div className="space-y-3 mb-6">
-                <h4 className="font-semibold text-white flex items-center space-x-2">
-                  <Award className="w-4 h-4 text-blue-400" />
-                  <span>Certifications</span>
-                </h4>
-                <div className="space-y-2">
-                  {siteConfig.business.certifications.slice(0, 3).map((cert, index) => (
-                    <div key={index} className="flex items-center space-x-2 text-sm text-gray-400">
-                      <div className="w-1.5 h-1.5 bg-blue-400 rounded-full"></div>
-                      <span>{cert}</span>
-                    </div>
-                  ))}
+              <motion.div 
+                whileHover={{ x: 8 }}
+                transition={{ duration: 0.3 }}
+                style={{ display: 'flex', alignItems: 'flex-start', gap: '16px' }}
+              >
+                <div style={{
+                  width: '48px',
+                  height: '48px',
+                  background: 'linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%)',
+                  borderRadius: '14px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  flexShrink: 0,
+                  boxShadow: '0 4px 16px rgba(14, 165, 233, 0.3)',
+                  transition: 'all 0.3s ease'
+                }}>
+                  <Mail className="w-5 h-5 text-white" />
                 </div>
-              </div>
-
-              {/* Awards */}
-              <div className="space-y-3">
-                <h4 className="font-semibold text-white flex items-center space-x-2">
-                  <Star className="w-4 h-4 text-yellow-400" />
-                  <span>Awards</span>
-                </h4>
-                <div className="space-y-2">
-                  {siteConfig.business.awards.slice(0, 2).map((award, index) => (
-                    <div key={index} className="flex items-center space-x-2 text-sm text-gray-400">
-                      <div className="w-1.5 h-1.5 bg-yellow-400 rounded-full"></div>
-                      <span>{award}</span>
-                    </div>
-                  ))}
+                <div>
+                  <p style={{ 
+                    color: 'rgba(255, 255, 255, 0.7)', 
+                    margin: '0 0 4px 0',
+                    fontSize: '0.875rem',
+                    fontWeight: '500'
+                  }}>Email</p>
+                  <a href={`mailto:${siteConfig.contact.email}`} style={{
+                    color: 'white',
+                    textDecoration: 'none',
+                    transition: 'all 0.3s ease',
+                    fontSize: '1rem',
+                    fontWeight: '600',
+                    display: 'inline-block'
+                  }}>
+                    {siteConfig.contact.email}
+                  </a>
                 </div>
-              </div>
-            </motion.div>
-
-            {/* Services */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              viewport={{ once: true }}
-            >
-              <h3 className="text-lg font-bold mb-6 text-white">Our Services</h3>
-              <ul className="space-y-3">
-                {footerLinks.services.map((link, index) => (
-                  <motion.li
-                    key={link.name}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.4, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                  >
-                    <Link
-                      to={link.href}
-                      className="text-gray-300 hover:text-blue-400 transition-colors duration-300 flex items-center space-x-2 group"
-                    >
-                      <div className="w-1.5 h-1.5 bg-blue-400 rounded-full group-hover:scale-150 transition-transform duration-300"></div>
-                      <span>{link.name}</span>
-                    </Link>
-                  </motion.li>
-                ))}
-              </ul>
-            </motion.div>
-
-            {/* Company */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
-              <h3 className="text-lg font-bold mb-6 text-white">Company</h3>
-              <ul className="space-y-3">
-                {footerLinks.company.map((link, index) => (
-                  <motion.li
-                    key={link.name}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.4, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                  >
-                    <Link
-                      to={link.href}
-                      className="text-gray-300 hover:text-purple-400 transition-colors duration-300 flex items-center space-x-2 group"
-                    >
-                      <div className="w-1.5 h-1.5 bg-purple-400 rounded-full group-hover:scale-150 transition-transform duration-300"></div>
-                      <span>{link.name}</span>
-                    </Link>
-                  </motion.li>
-                ))}
-              </ul>
-            </motion.div>
-
-            {/* Contact Info */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              viewport={{ once: true }}
-            >
-              <h3 className="text-lg font-bold mb-6 text-white">Contact Info</h3>
-              <div className="space-y-4">
-                {/* Phone */}
-                <div className="flex items-start space-x-3 group">
-                  <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                    <Phone className="w-4 h-4 text-white" />
-                  </div>
-                  <div>
-                    <p className="text-gray-300 text-sm">Phone</p>
-                    <a 
-                      href={`tel:${siteConfig.contact.phone}`}
-                      className="text-white hover:text-blue-400 transition-colors duration-300 font-medium"
-                    >
-                      {siteConfig.contact.phone}
-                    </a>
-                    <p className="text-gray-400 text-xs mt-1">Emergency: {siteConfig.contact.emergency}</p>
-                  </div>
+              </motion.div>
+              
+              <motion.div 
+                whileHover={{ x: 8 }}
+                transition={{ duration: 0.3 }}
+                style={{ display: 'flex', alignItems: 'flex-start', gap: '16px' }}
+              >
+                <div style={{
+                  width: '48px',
+                  height: '48px',
+                  background: 'linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%)',
+                  borderRadius: '14px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  flexShrink: 0,
+                  boxShadow: '0 4px 16px rgba(14, 165, 233, 0.3)',
+                  transition: 'all 0.3s ease'
+                }}>
+                  <MapPin className="w-5 h-5 text-white" />
                 </div>
-
-                {/* Email */}
-                <div className="flex items-start space-x-3 group">
-                  <div className="w-8 h-8 bg-gradient-to-br from-purple-600 to-purple-700 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                    <Mail className="w-4 h-4 text-white" />
-                  </div>
-                  <div>
-                    <p className="text-gray-300 text-sm">Email</p>
-                    <a 
-                      href={`mailto:${siteConfig.contact.email}`}
-                      className="text-white hover:text-purple-400 transition-colors duration-300 font-medium"
-                    >
-                      {siteConfig.contact.email}
-                    </a>
-                  </div>
+                <div>
+                  <p style={{ 
+                    color: 'rgba(255, 255, 255, 0.7)', 
+                    margin: '0 0 4px 0',
+                    fontSize: '0.875rem',
+                    fontWeight: '500'
+                  }}>Address</p>
+                  <p style={{ 
+                    color: 'white', 
+                    margin: 0,
+                    fontSize: '1rem',
+                    fontWeight: '600',
+                    lineHeight: '1.5'
+                  }}>
+                    {siteConfig.contact.address.street}<br />
+                    {siteConfig.contact.address.city}, {siteConfig.contact.address.state} {siteConfig.contact.address.zip}
+                  </p>
                 </div>
+              </motion.div>
+            </div>
+          </motion.div>
 
-                {/* Address */}
-                <div className="flex items-start space-x-3 group">
-                  <div className="w-8 h-8 bg-gradient-to-br from-green-600 to-green-700 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                    <MapPin className="w-4 h-4 text-white" />
-                  </div>
-                  <div>
-                    <p className="text-gray-300 text-sm">Address</p>
-                    <address className="text-white not-italic">
-                      {siteConfig.contact.address.street}<br />
-                      {siteConfig.contact.address.city}, {siteConfig.contact.address.state} {siteConfig.contact.address.zip}
-                    </address>
-                  </div>
-                </div>
-
-                {/* Hours */}
-                <div className="flex items-start space-x-3 group">
-                  <div className="w-8 h-8 bg-gradient-to-br from-yellow-600 to-yellow-700 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                    <Clock className="w-4 h-4 text-white" />
-                  </div>
-                  <div>
-                    <p className="text-gray-300 text-sm">Hours</p>
-                    <div className="text-white text-sm">
-                      <p>Mon-Fri: 8:00 AM - 6:00 PM</p>
-                      <p>Saturday: 9:00 AM - 5:00 PM</p>
-                      <p>Sunday: Closed</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-
-        {/* Enhanced Bottom Bar */}
-        <div className="border-t border-gray-700/50 py-8">
-          <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
-            {/* Copyright */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="text-gray-400 text-sm"
-            >
-              <p>
-                © {currentYear} {siteConfig.business.name}. All rights reserved.
-              </p>
-              <p className="mt-1">
-                Founded in {siteConfig.business.founded} • {siteConfig.business.employees} employees
-              </p>
-            </motion.div>
-
-            {/* Social Links */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="flex items-center space-x-4"
-            >
-              {Object.entries(siteConfig.social).map(([platform, social]) => (
-                <motion.a
-                  key={platform}
-                  href={social.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 bg-gradient-to-br from-gray-700 to-gray-800 rounded-lg flex items-center justify-center text-gray-300 hover:text-white hover:scale-110 transition-all duration-300 hover:shadow-lg"
-                  whileHover={{ rotate: 5 }}
-                  whileTap={{ scale: 0.95 }}
-                  aria-label={social.label}
-                >
-                  {platform === 'facebook' && <Facebook className="w-5 h-5" />}
-                  {platform === 'twitter' && <Twitter className="w-5 h-5" />}
-                  {platform === 'instagram' && <Instagram className="w-5 h-5" />}
-                  {platform === 'linkedin' && <Linkedin className="w-5 h-5" />}
-                  {platform === 'youtube' && <Youtube className="w-5 h-5" />}
-                </motion.a>
-              ))}
-            </motion.div>
-          </div>
-
-          {/* Additional Links */}
+          {/* Company Info */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            viewport={{ once: true }}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '24px' }}>
+              <div style={{
+                width: '56px',
+                height: '56px',
+                background: 'linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%)',
+                borderRadius: '16px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                boxShadow: '0 8px 32px rgba(14, 165, 233, 0.3)',
+                transition: 'all 0.3s ease'
+              }}>
+                <svg style={{ width: '32px', height: '32px', color: 'white' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <div>
+                <h3 style={{
+                  fontFamily: 'Playfair Display, serif',
+                  fontSize: '1.75rem',
+                  fontWeight: '700',
+                  margin: '0 0 4px 0',
+                  color: 'white'
+                }}>{siteConfig.business.name}</h3>
+                <p style={{
+                  fontSize: '0.875rem',
+                  color: 'rgba(255, 255, 255, 0.7)',
+                  margin: 0,
+                  fontWeight: '500'
+                }}>
+                  Professional Auto Services
+                </p>
+              </div>
+            </div>
+            <p style={{
+              color: 'rgba(255, 255, 255, 0.8)',
+              fontSize: '1rem',
+              lineHeight: '1.7',
+              margin: '0 0 32px 0',
+              maxWidth: '400px'
+            }}>
+              {siteConfig.business.description}
+            </p>
+            
+            {/* Business Hours */}
+            <div style={{ marginBottom: '24px' }}>
+              <h4 style={{
+                fontSize: '1rem',
+                fontWeight: '600',
+                color: 'white',
+                margin: '0 0 12px 0'
+              }}>
+                Business Hours
+              </h4>
+              <div style={{ fontSize: '0.875rem', color: 'rgba(255, 255, 255, 0.7)' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '4px' }}>
+                  <span>Monday - Friday:</span>
+                  <span>7:30 AM - 6:00 PM</span>
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '4px' }}>
+                  <span>Saturday:</span>
+                  <span>8:00 AM - 4:00 PM</span>
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                  <span>Sunday:</span>
+                  <span>Closed</span>
+                </div>
+              </div>
+          </div>
+          </motion.div>
+
+          {/* Services */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="flex flex-wrap items-center justify-center space-x-6 mt-6 pt-6 border-t border-gray-700/30"
           >
-            <Link to="/privacy" className="text-gray-400 hover:text-white transition-colors duration-300 text-sm">
-              Privacy Policy
-            </Link>
-            <Link to="/terms" className="text-gray-400 hover:text-white transition-colors duration-300 text-sm">
-              Terms of Service
-            </Link>
-            <Link to="/sitemap" className="text-gray-400 hover:text-white transition-colors duration-300 text-sm">
-              Sitemap
-            </Link>
-            <Link to="/accessibility" className="text-gray-400 hover:text-white transition-colors duration-300 text-sm">
-              Accessibility
-            </Link>
+            <h4 style={{
+              fontSize: '1.25rem',
+              fontWeight: '700',
+              margin: '0 0 24px 0',
+              color: 'white',
+              fontFamily: 'Playfair Display, serif'
+            }}>Our Services</h4>
+            <ul style={{ 
+              display: 'flex', 
+              flexDirection: 'column', 
+              gap: '12px', 
+              margin: 0, 
+              padding: 0, 
+              listStyle: 'none' 
+            }}>
+              {footerLinks.services.map((link, index) => (
+                <motion.li 
+                  key={link.name}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  whileHover={{ x: 8 }}
+                >
+                  <Link to={link.href} style={{
+                    color: 'rgba(255, 255, 255, 0.8)',
+                    textDecoration: 'none',
+                    transition: 'all 0.3s ease',
+                    fontSize: '1rem',
+                    fontWeight: '500',
+                    display: 'block',
+                    padding: '8px 0',
+                    borderRadius: '8px',
+                    position: 'relative'
+                  }}>
+                    {link.name}
+                  </Link>
+                </motion.li>
+              ))}
+            </ul>
           </motion.div>
         </div>
+
+        {/* Bottom Section */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          viewport={{ once: true }}
+          style={{
+            paddingTop: '40px',
+            borderTop: '1px solid rgba(255, 255, 255, 0.1)',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: '24px'
+          }}
+        >
+          {/* Social Links */}
+          <div style={{ display: 'flex', gap: '20px' }}>
+            {Object.values(siteConfig.social).map((social, index) => (
+              <motion.a 
+                key={social.url} 
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                whileHover={{ scale: 1.1, y: -4 }}
+                whileTap={{ scale: 0.95 }}
+                href={social.url} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                style={{
+                  color: 'rgba(255, 255, 255, 0.7)',
+                  transition: 'all 0.3s ease',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  width: '52px',
+                  height: '52px',
+                  borderRadius: '14px',
+                  background: 'rgba(255, 255, 255, 0.08)',
+                  backdropFilter: 'blur(8px)',
+                  border: '1px solid rgba(255, 255, 255, 0.1)'
+                }}
+                aria-label={social.label}
+              >
+                <social.icon className="w-5 h-5" />
+              </motion.a>
+            ))}
+          </div>
+          
+          {/* Copyright */}
+          <div style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: '8px'
+          }}>
+            <p style={{
+              fontSize: '0.875rem',
+              color: 'rgba(255, 255, 255, 0.6)',
+              margin: 0,
+              textAlign: 'center'
+            }}>
+              &copy; {currentYear} {siteConfig.business.name}. All rights reserved.
+            </p>
+            <p style={{
+              fontSize: '0.75rem',
+              color: 'rgba(255, 255, 255, 0.5)',
+              margin: 0,
+              textAlign: 'center'
+            }}>
+              Professional auto repair and maintenance services
+            </p>
+        </div>
+        </motion.div>
       </div>
     </footer>
   );

@@ -5,153 +5,143 @@ import {
   Car, 
   Zap, 
   Wrench, 
-  Star 
+  Gauge,
+  Droplets,
+  Snowflake
 } from 'lucide-react';
 import { ComponentType } from 'react';
 
 export interface Service {
-  id: string;
-  category: string;
-  icon: ComponentType<{ className?: string }>;
+  id: number;
   title: string;
   description: string;
-  duration: string;
-  price: string;
+  image?: string;
+  icon: ComponentType<{ className?: string }>;
   features: string[];
-  popular: boolean;
-  color: string;
-  image: string;
-  videoUrl?: string;
-  details?: string;
+  price?: string;
+  duration?: string;
+  popular?: boolean;
+  category?: string;
+  gradient?: string;
 }
 
 export const services: Service[] = [
   {
-    id: 'engine-repair',
-    category: 'engine',
-    icon: Settings,
-    title: 'Engine Repair',
-    description: 'Complete engine diagnostics and repair services',
-    duration: '2-4 hours',
-    price: 'From £120',
-    features: ['Engine diagnostics', 'Performance tuning', 'Engine rebuilds', 'Oil leak repair'],
+    id: 1,
+    title: "Engine Diagnostics",
+    description: "Comprehensive engine diagnostics using state-of-the-art equipment to identify and resolve performance issues.",
+    image: "/assets/engine-diagnostics-C3CvCyXQ.jpg",
+    icon: Gauge,
+    gradient: "linear-gradient(135deg, #1f293b 0%, #3b82f6 100%)",
+    features: [
+      "Computer diagnostics",
+      "Performance testing",
+      "Error code analysis",
+      "Detailed reporting"
+    ],
+    price: "From £89",
+    duration: "30-60 min",
     popular: true,
-    color: 'from-red-500 to-red-600',
-    image: '/assets/img/update_1/service/service_4_1.jpg',
-    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-    details: 'Our certified technicians use state-of-the-art diagnostic equipment to identify and repair engine issues. We handle everything from minor tune-ups to major engine rebuilds.'
+    category: "engine"
   },
   {
-    id: 'brake-service',
-    category: 'brake',
+    id: 2,
+    title: "Brake System Service",
+    description: "Complete brake system inspection, repair, and maintenance to ensure your safety on the road.",
+    image: "/assets/brake-system-BYK7WyXj.jpg",
     icon: Shield,
-    title: 'Brake Service',
-    description: 'Comprehensive brake system maintenance and repair',
-    duration: '1-3 hours',
-    price: 'From £95',
-    features: ['Brake pad replacement', 'Rotor resurfacing', 'Brake fluid flush', 'ABS system repair'],
-    popular: false,
-    color: 'from-blue-500 to-blue-600',
-    image: '/assets/img/update_1/service/service_4_2.jpg',
-    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-    details: 'Your safety is our priority. We provide complete brake system services including inspection, repair, and maintenance to ensure your vehicle stops safely.'
-  },
-  {
-    id: 'oil-change',
-    category: 'maintenance',
-    icon: Clock,
-    title: 'Oil Change',
-    description: 'Quick and reliable oil change service',
-    duration: '30-45 min',
-    price: 'From £35',
-    features: ['Full-synthetic oil', 'Oil filter replacement', 'Multi-point inspection', 'Tire rotation'],
+    gradient: "linear-gradient(135deg, #7f1d1e 0%, #ec4444 100%)",
+    features: [
+      "Brake pad replacement",
+      "Rotor resurfacing",
+      "Fluid inspection",
+      "Caliper service"
+    ],
+    price: "From £149",
+    duration: "1-2 hours",
     popular: true,
-    color: 'from-green-500 to-green-600',
-    image: '/assets/img/update_1/service/service_4_3.jpg',
-    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-    details: 'Regular oil changes are essential for engine longevity. We use high-quality synthetic oils and perform a comprehensive inspection with every oil change.'
+    category: "brakes"
   },
   {
-    id: 'transmission',
-    category: 'engine',
-    icon: Wrench,
-    title: 'Transmission Service',
-    description: 'Professional transmission repair and maintenance',
-    duration: '3-6 hours',
-    price: 'From £160',
-    features: ['Transmission fluid change', 'Clutch replacement', 'Gearbox repair', 'CVT service'],
+    id: 3,
+    title: "Oil Change Service",
+    description: "Professional oil change service with premium filters to keep your engine running smoothly.",
+    image: "/assets/oil-change-service-Clx5Hmhp.jpg",
+    icon: Droplets,
+    gradient: "linear-gradient(135deg, #067a4b 0%, #10b981 100%)",
+    features: [
+      "Synthetic oil options",
+      "Filter replacement",
+      "Multi-point inspection",
+      "Fluid level check"
+    ],
+    price: "From £39",
+    duration: "30 min",
+    popular: true,
+    category: "maintenance"
+  },
+  {
+    id: 4,
+    title: "Tire Services",
+    description: "Complete tire services including rotation, balancing, alignment, and replacement.",
+    image: "/assets/tire-services-C62VQbM4.jpg",
+    icon: Car,
+    gradient: "linear-gradient(135deg, #581caf 0%, #8b5cf6 100%)",
+    features: [
+      "Tire rotation",
+      "Wheel balancing",
+      "Alignment check",
+      "Tire replacement"
+    ],
+    price: "From £29",
+    duration: "45 min",
     popular: false,
-    color: 'from-purple-500 to-purple-600',
-    image: '/assets/img/update_1/service/service_4_4.jpg',
-    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-    details: 'Our transmission specialists handle all types of transmissions including manual, automatic, and CVT systems with precision and expertise.'
+    category: "tires"
   },
   {
-    id: 'electrical',
-    category: 'electrical',
+    id: 5,
+    title: "Electrical System",
+    description: "Diagnostic and repair services for all electrical components and systems in your vehicle.",
+    image: "/assets/electrical-services-CJ6sTfFT.jpg",
     icon: Zap,
-    title: 'Electrical Systems',
-    description: 'Advanced electrical diagnostics and comprehensive repair services',
-    duration: '1-4 hours',
-    price: 'From £80',
-    features: ['Battery replacement', 'Alternator repair', 'Starter service', 'Wiring repair', 'ECU diagnostics', 'Lighting systems'],
-    popular: true,
-    color: 'from-yellow-500 to-yellow-600',
-    image: '/assets/img/update_1/service/service_4_1.jpg',
-    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-    details: 'Modern vehicles rely heavily on sophisticated electrical systems. Our certified technicians are trained to diagnose and repair complex electrical issues efficiently, ensuring your vehicle operates at peak performance.'
-  },
-  {
-    id: 'ac-heating',
-    category: 'maintenance',
-    icon: Car,
-    title: 'AC/Heating',
-    description: 'Climate control system repair and maintenance',
-    duration: '2-4 hours',
-    price: 'From £95',
-    features: ['AC recharge', 'Heater repair', 'Climate control', 'Thermostat replacement'],
+    gradient: "linear-gradient(135deg, #eaa040 0%, #f59e0a 100%)",
+    features: [
+      "Battery testing",
+      "Alternator service",
+      "Starter repair",
+      "Wiring diagnostics"
+    ],
+    price: "From £79",
+    duration: "1-3 hours",
     popular: false,
-    color: 'from-cyan-500 to-cyan-600',
-    image: '/assets/img/update_1/service/service_4_2.jpg',
-    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-    details: 'Stay comfortable year-round with our climate control services. We service all types of heating and air conditioning systems.'
+    category: "electrical"
   },
   {
-    id: 'tire-service',
-    category: 'maintenance',
-    icon: Car,
-    title: 'Tire Service',
-    description: 'Comprehensive tire and wheel services',
-    duration: '1-2 hours',
-    price: 'From £65',
-    features: ['Tire replacement', 'Wheel alignment', 'Tire rotation', 'Flat repair'],
+    id: 6,
+    title: "AC System Service",
+    description: "Complete air conditioning system service to keep you cool and comfortable year-round.",
+    image: "/assets/ac-system-service-CqYtSBlf.jpg",
+    icon: Snowflake,
+    gradient: "linear-gradient(135deg, #0696a7 0%, #06b6d4 100%)",
+    features: [
+      "AC diagnostics",
+      "Refrigerant service",
+      "Component repair",
+      "Performance testing"
+    ],
+    price: "From £99",
+    duration: "1-2 hours",
     popular: false,
-    color: 'from-orange-500 to-orange-600',
-    image: '/assets/img/update_1/service/service_4_3.jpg',
-    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-    details: 'Proper tire maintenance is crucial for safety and performance. We offer comprehensive tire services including alignment and balancing.'
-  },
-  {
-    id: 'diagnostics',
-    category: 'electrical',
-    icon: Star,
-    title: 'Computer Diagnostics',
-    description: 'Advanced computer diagnostics and system analysis',
-    duration: '30-60 min',
-    price: 'From £65',
-    features: ['Engine codes', 'System analysis', 'Performance testing', 'Error clearing'],
-    popular: true,
-    color: 'from-indigo-500 to-indigo-600',
-    image: '/assets/img/update_1/service/service_4_4.jpg',
-    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-    details: 'Modern diagnostic equipment allows us to quickly identify issues and provide accurate solutions for complex vehicle problems.'
+    category: "climate"
   }
 ];
 
 export const serviceCategories = [
   { id: 'all', name: 'All Services', icon: Wrench },
   { id: 'engine', name: 'Engine', icon: Settings },
-  { id: 'brake', name: 'Brakes', icon: Shield },
+  { id: 'brakes', name: 'Brakes', icon: Shield },
   { id: 'maintenance', name: 'Maintenance', icon: Clock },
+  { id: 'tires', name: 'Tires', icon: Car },
   { id: 'electrical', name: 'Electrical', icon: Zap },
+  { id: 'climate', name: 'AC/Heating', icon: Wrench },
 ]; 

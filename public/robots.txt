@@ -2,78 +2,19 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://autofixpro.com/sitemap.xml
-
-# Crawl-delay
-Crawl-delay: 1
+Sitemap: https://car--repair-sheffield.netlify.app/sitemap.xml
 
 # Disallow admin and private areas
 Disallow: /admin/
 Disallow: /private/
 Disallow: /api/
-Disallow: /_next/
-Disallow: /static/
 
 # Allow important pages
-Allow: /about/
-Allow: /services/
-Allow: /contact/
-Allow: /appointment/
-Allow: /blog/
-
-# Allow assets
-Allow: /assets/
-Allow: /images/
-Allow: /css/
-Allow: /js/
-
-# Block common bot traps
-Disallow: /search?
-Disallow: /?q=
-Disallow: /?s=
-Disallow: /?query=
-
-# Block temporary and development files
-Disallow: /temp/
-Disallow: /tmp/
-Disallow: /dev/
-Disallow: /test/
-Disallow: /staging/
-
-# Block common CMS paths
-Disallow: /wp-admin/
-Disallow: /wp-includes/
-Disallow: /wp-content/plugins/
-Disallow: /wp-content/themes/
-Disallow: /wp-content/uploads/
-
-# Block common framework paths
-Disallow: /node_modules/
-Disallow: /vendor/
-Disallow: /bower_components/
-
-# Allow social media bots
-User-agent: Twitterbot
 Allow: /
+Allow: /about
+Allow: /services
+Allow: /contact
+Allow: /appointment
 
-User-agent: facebookexternalhit
-Allow: /
-
-User-agent: LinkedInBot
-Allow: /
-
-User-agent: Pinterest
-Allow: /
-
-# Block aggressive bots
-User-agent: AhrefsBot
-Crawl-delay: 10
-
-User-agent: MJ12bot
-Crawl-delay: 10
-
-User-agent: DotBot
-Crawl-delay: 10
-
-User-agent: SemrushBot
-Crawl-delay: 10 
+# Crawl delay for better server performance
+Crawl-delay: 1 

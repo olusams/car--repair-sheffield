@@ -112,7 +112,7 @@ export const siteConfig: SiteConfig = {
       "VOSA Approved"
     ],
     awards: [
-      "Best Auto Repair 2023 - London Business Awards",
+      "Best Auto Repair 2023 - Sheffield Business Awards",
       "Customer Choice Award 2022 - Trustpilot",
       "Excellence in Service 2021 - Better Business Bureau",
       "Top Rated Local Business 2020 - Google Reviews"
@@ -129,12 +129,12 @@ export const siteConfig: SiteConfig = {
       country: "United Kingdom"
     },
     hours: {
-      "Monday": "7:30 AM - 6:00 PM",
-      "Tuesday": "7:30 AM - 6:00 PM",
-      "Wednesday": "7:30 AM - 6:00 PM",
-      "Thursday": "7:30 AM - 6:00 PM",
-      "Friday": "7:30 AM - 6:00 PM",
-      "Saturday": "8:00 AM - 4:00 PM",
+      "Monday": "8:00 AM - 6:00 PM",
+      "Tuesday": "8:00 AM - 6:00 PM",
+      "Wednesday": "8:00 AM - 6:00 PM",
+      "Thursday": "8:00 AM - 6:00 PM",
+      "Friday": "8:00 AM - 6:00 PM",
+      "Saturday": "9:00 AM - 5:00 PM",
       "Sunday": "Closed"
     },
     emergency: "0114 385 4999"

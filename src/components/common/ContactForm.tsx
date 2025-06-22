@@ -58,23 +58,54 @@ const ContactForm: React.FC = () => {
   };
 
   return (
-    <div className="bg-white rounded-3xl p-8 shadow-xl border border-gray-100 relative overflow-hidden group hover-lift">
+    <div style={{
+      background: 'white',
+      borderRadius: '24px',
+      padding: '32px',
+      boxShadow: '0 10px 25px rgba(0, 0, 0, 0.1)',
+      border: '1px solid #f1f5f9',
+      position: 'relative',
+      overflow: 'hidden'
+    }}>
       
       {/* Enhanced Background Effects */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-400/5 via-purple-400/5 to-pink-400/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-400/10 via-transparent to-purple-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+      <div style={{
+        position: 'absolute',
+        inset: 0,
+        background: 'linear-gradient(to bottom right, rgba(59, 130, 246, 0.05), rgba(147, 51, 234, 0.05), rgba(236, 72, 153, 0.05))',
+        opacity: 0,
+        transition: 'opacity 0.5s ease'
+      }}></div>
       
       {/* Enhanced Header */}
-      <div className="relative z-10 mb-8">
-        <div className="flex items-center space-x-3 mb-4">
-          <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
-            <Send className="w-6 h-6 text-white group-hover:scale-110 transition-transform duration-300" />
+      <div style={{ position: 'relative', zIndex: 10, marginBottom: '32px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
+          <div style={{
+            width: '48px',
+            height: '48px',
+            background: 'linear-gradient(to bottom right, #3b82f6, #8b5cf6)',
+            borderRadius: '12px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+            transition: 'all 0.5s ease'
+          }}>
+            <Send style={{ width: '24px', height: '24px', color: 'white' }} />
           </div>
           <div>
-            <h3 className="text-2xl font-bold text-gray-900 group-hover:text-gradient transition-all duration-300">
+            <h3 style={{
+              fontSize: '1.5rem',
+              fontWeight: '700',
+              color: '#111827',
+              margin: '0 0 4px 0'
+            }}>
               Send us a Message
             </h3>
-            <p className="text-gray-600 group-hover:text-gray-700 transition-colors duration-300">
+            <p style={{
+              color: '#6b7280',
+              margin: 0
+            }}>
               We'll get back to you within 24 hours
             </p>
           </div>
@@ -82,16 +113,21 @@ const ContactForm: React.FC = () => {
       </div>
 
       {/* Enhanced Form */}
-      <form onSubmit={handleSubmit} className="relative z-10 space-y-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <form onSubmit={handleSubmit} style={{ position: 'relative', zIndex: 10 }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '24px', marginBottom: '24px' }}>
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: true }}
-            className="group"
           >
-            <label className="block text-sm font-medium text-gray-700 mb-2 group-hover:text-blue-600 transition-colors duration-300">
+            <label style={{
+              display: 'block',
+              fontSize: '0.875rem',
+              fontWeight: '500',
+              color: '#374151',
+              marginBottom: '8px'
+            }}>
               Full Name
             </label>
             <input
@@ -103,10 +139,18 @@ const ContactForm: React.FC = () => {
               aria-required="true"
               aria-invalid={!!errors.name}
               aria-describedby={errors.name ? 'name-error' : undefined}
-              className="form-input w-full focus-ring group-hover:border-blue-400 transition-all duration-300"
+              style={{
+                width: '100%',
+                padding: '12px 16px',
+                border: '1px solid #d1d5db',
+                borderRadius: '8px',
+                fontSize: '1rem',
+                transition: 'all 0.3s ease',
+                outline: 'none'
+              }}
               placeholder="Enter your full name"
             />
-            {errors.name && <span id="name-error" className="text-red-500 text-xs">{errors.name}</span>}
+            {errors.name && <span id="name-error" style={{ color: '#ef4444', fontSize: '0.75rem' }}>{errors.name}</span>}
           </motion.div>
 
           <motion.div
@@ -114,9 +158,14 @@ const ContactForm: React.FC = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="group"
           >
-            <label className="block text-sm font-medium text-gray-700 mb-2 group-hover:text-blue-600 transition-colors duration-300">
+            <label style={{
+              display: 'block',
+              fontSize: '0.875rem',
+              fontWeight: '500',
+              color: '#374151',
+              marginBottom: '8px'
+            }}>
               Email Address
             </label>
             <input
@@ -128,10 +177,18 @@ const ContactForm: React.FC = () => {
               aria-required="true"
               aria-invalid={!!errors.email}
               aria-describedby={errors.email ? 'email-error' : undefined}
-              className="form-input w-full focus-ring group-hover:border-blue-400 transition-all duration-300"
+              style={{
+                width: '100%',
+                padding: '12px 16px',
+                border: '1px solid #d1d5db',
+                borderRadius: '8px',
+                fontSize: '1rem',
+                transition: 'all 0.3s ease',
+                outline: 'none'
+              }}
               placeholder="Enter your email"
             />
-            {errors.email && <span id="email-error" className="text-red-500 text-xs">{errors.email}</span>}
+            {errors.email && <span id="email-error" style={{ color: '#ef4444', fontSize: '0.75rem' }}>{errors.email}</span>}
           </motion.div>
         </div>
 
@@ -140,9 +197,15 @@ const ContactForm: React.FC = () => {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
           viewport={{ once: true }}
-          className="group"
+          style={{ marginBottom: '24px' }}
         >
-          <label className="block text-sm font-medium text-gray-700 mb-2 group-hover:text-blue-600 transition-colors duration-300">
+          <label style={{
+            display: 'block',
+            fontSize: '0.875rem',
+            fontWeight: '500',
+            color: '#374151',
+            marginBottom: '8px'
+          }}>
             Phone Number
           </label>
           <input
@@ -152,10 +215,18 @@ const ContactForm: React.FC = () => {
             onChange={handleChange}
             aria-invalid={!!errors.phone}
             aria-describedby={errors.phone ? 'phone-error' : undefined}
-            className="form-input w-full focus-ring group-hover:border-blue-400 transition-all duration-300"
+            style={{
+              width: '100%',
+              padding: '12px 16px',
+              border: '1px solid #d1d5db',
+              borderRadius: '8px',
+              fontSize: '1rem',
+              transition: 'all 0.3s ease',
+              outline: 'none'
+            }}
             placeholder="Enter your phone number"
           />
-          {errors.phone && <span id="phone-error" className="text-red-500 text-xs">{errors.phone}</span>}
+          {errors.phone && <span id="phone-error" style={{ color: '#ef4444', fontSize: '0.75rem' }}>{errors.phone}</span>}
         </motion.div>
 
         <motion.div
@@ -163,9 +234,15 @@ const ContactForm: React.FC = () => {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
           viewport={{ once: true }}
-          className="group"
+          style={{ marginBottom: '24px' }}
         >
-          <label className="block text-sm font-medium text-gray-700 mb-2 group-hover:text-blue-600 transition-colors duration-300">
+          <label style={{
+            display: 'block',
+            fontSize: '0.875rem',
+            fontWeight: '500',
+            color: '#374151',
+            marginBottom: '8px'
+          }}>
             Message
           </label>
           <textarea
@@ -177,10 +254,20 @@ const ContactForm: React.FC = () => {
             aria-invalid={!!errors.message}
             aria-describedby={errors.message ? 'message-error' : undefined}
             rows={4}
-            className="form-input w-full focus-ring group-hover:border-blue-400 transition-all duration-300 resize-none"
+            style={{
+              width: '100%',
+              padding: '12px 16px',
+              border: '1px solid #d1d5db',
+              borderRadius: '8px',
+              fontSize: '1rem',
+              transition: 'all 0.3s ease',
+              outline: 'none',
+              resize: 'none',
+              fontFamily: 'inherit'
+            }}
             placeholder="Tell us about your automotive needs..."
           />
-          {errors.message && <span id="message-error" className="text-red-500 text-xs">{errors.message}</span>}
+          {errors.message && <span id="message-error" style={{ color: '#ef4444', fontSize: '0.75rem' }}>{errors.message}</span>}
         </motion.div>
 
         <motion.div
@@ -191,38 +278,63 @@ const ContactForm: React.FC = () => {
         >
           <button
             type="submit"
-            className="w-full btn-primary group relative overflow-hidden"
+            style={{
+              width: '100%',
+              background: 'linear-gradient(to right, #3b82f6, #8b5cf6)',
+              color: 'white',
+              padding: '16px 24px',
+              border: 'none',
+              borderRadius: '12px',
+              fontSize: '1rem',
+              fontWeight: '600',
+              cursor: 'pointer',
+              transition: 'all 0.3s ease',
+              position: 'relative',
+              overflow: 'hidden'
+            }}
           >
-            <span className="relative z-10 flex items-center justify-center space-x-3">
-              <Send className="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" />
+            <span style={{
+              position: 'relative',
+              zIndex: 10,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '12px'
+            }}>
+              <Send style={{ width: '20px', height: '20px' }} />
               <span>Send Message</span>
             </span>
-            <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           </button>
         </motion.div>
       </form>
 
       {/* Enhanced Contact Info */}
-      <div className="relative z-10 mt-8 pt-8 border-t border-gray-200">
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+      <div style={{
+        position: 'relative',
+        zIndex: 10,
+        marginTop: '32px',
+        paddingTop: '32px',
+        borderTop: '1px solid #e5e7eb'
+      }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '24px' }}>
           {[
             {
               icon: Phone,
               title: "Phone",
-              value: "+1 (555) 123-4567",
-              color: "from-green-500 to-green-600"
+              value: "0114 385 4721",
+              color: "linear-gradient(to bottom right, #22c55e, #16a34a)"
             },
             {
               icon: Mail,
               title: "Email",
-              value: "info@autofixpro.com",
-              color: "from-blue-500 to-blue-600"
+              value: "info@autofixpro.co.uk",
+              color: "linear-gradient(to bottom right, #3b82f6, #2563eb)"
             },
             {
               icon: Clock,
               title: "Hours",
-              value: "Mon-Fri: 8AM-6PM",
-              color: "from-purple-500 to-purple-600"
+              value: "Mon-Fri: 8AM-6PM, Sat: 9AM-5PM",
+              color: "linear-gradient(to bottom right, #8b5cf6, #7c3aed)"
             }
           ].map((contact, index) => (
             <motion.div
@@ -231,16 +343,33 @@ const ContactForm: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="flex items-center space-x-3 group"
+              style={{ display: 'flex', alignItems: 'center', gap: '12px' }}
             >
-              <div className={`w-10 h-10 bg-gradient-to-br ${contact.color} rounded-lg flex items-center justify-center shadow-md group-hover:scale-110 group-hover:rotate-3 transition-all duration-300`}>
-                <contact.icon className="w-5 h-5 text-white group-hover:scale-110 transition-transform duration-300" />
+              <div style={{
+                width: '40px',
+                height: '40px',
+                background: contact.color,
+                borderRadius: '8px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+                transition: 'all 0.3s ease'
+              }}>
+                <contact.icon style={{ width: '20px', height: '20px', color: 'white' }} />
               </div>
               <div>
-                <div className="text-sm font-medium text-gray-900 group-hover:text-gradient transition-all duration-300">
+                <div style={{
+                  fontSize: '0.875rem',
+                  fontWeight: '500',
+                  color: '#111827'
+                }}>
                   {contact.title}
                 </div>
-                <div className="text-sm text-gray-600 group-hover:text-gray-700 transition-colors duration-300">
+                <div style={{
+                  fontSize: '0.875rem',
+                  color: '#6b7280'
+                }}>
                   {contact.value}
                 </div>
               </div>
@@ -249,23 +378,18 @@ const ContactForm: React.FC = () => {
         </div>
       </div>
 
-      {/* Enhanced Corner Accents */}
-      <div className="absolute top-0 left-0 w-8 h-8 border-l-2 border-t-2 border-transparent group-hover:border-blue-500 transition-all duration-500 rounded-tl-3xl"></div>
-      <div className="absolute top-0 right-0 w-8 h-8 border-r-2 border-t-2 border-transparent group-hover:border-purple-500 transition-all duration-500 rounded-tr-3xl"></div>
-      <div className="absolute bottom-0 left-0 w-8 h-8 border-l-2 border-b-2 border-transparent group-hover:border-purple-500 transition-all duration-500 rounded-bl-3xl"></div>
-      <div className="absolute bottom-0 right-0 w-8 h-8 border-r-2 border-b-2 border-transparent group-hover:border-blue-500 transition-all duration-500 rounded-br-3xl"></div>
-
-      {/* Enhanced Border Glow Effect */}
-      <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none bg-gradient-to-r from-blue-400/20 via-purple-400/20 to-blue-400/20 blur-xl scale-110 group-hover:scale-100"></div>
-
-      {/* Enhanced Floating Particles */}
-      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-1000 pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-blue-400 rounded-full animate-float"></div>
-        <div className="absolute top-1/3 right-1/3 w-1 h-1 bg-purple-400 rounded-full animate-float" style={{ animationDelay: '0.5s' }}></div>
-        <div className="absolute bottom-1/3 left-1/3 w-1.5 h-1.5 bg-pink-400 rounded-full animate-float" style={{ animationDelay: '1s' }}></div>
-      </div>
-
-      {success && <div className="text-green-600 font-semibold my-4" role="status">{success}</div>}
+      {success && (
+        <div style={{
+          marginTop: '24px',
+          padding: '16px',
+          background: '#dcfce7',
+          color: '#166534',
+          borderRadius: '8px',
+          textAlign: 'center'
+        }}>
+          {success}
+        </div>
+      )}
     </div>
   );
 };

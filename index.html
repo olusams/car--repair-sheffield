@@ -1,31 +1,107 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/assets/img/logo-blue.svg" />
+    <link rel="icon" type="image/svg+xml" href="./public/assets/img/logo-blue.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Professional car repair and automotive services in Sheffield. Expert technicians, quality workmanship, and exceptional customer service." />
-    <meta name="keywords" content="car repair, auto service, Sheffield, automotive, mechanic, car maintenance" />
+    
+    <!-- Enhanced SEO Meta Tags -->
+    <meta name="description" content="Professional car repair and automotive services in Sheffield. Expert technicians, quality workmanship, and exceptional customer service. Book your appointment today!" />
+    <meta name="keywords" content="car repair Sheffield, auto service Sheffield, automotive repair, mechanic Sheffield, car maintenance, MOT test, oil change, brake repair, engine diagnostics" />
     <meta name="author" content="Malen Car Repair" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="English" />
+    <meta name="revisit-after" content="7 days" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://car--repair-sheffield.netlify.app/" />
+    
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="./public/assets/img/hero/hero_bg_1_1.jpg" as="image" />
+    
+    <!-- Preload Service Images -->
+    <link rel="preload" href="./public/assets/img/service/engine-diagnostics.jpg" as="image" />
+    <link rel="preload" href="./public/assets/img/service/brake-system.jpg" as="image" />
+    <link rel="preload" href="./public/assets/img/service/oil-change-service.jpg" as="image" />
+    <link rel="preload" href="./public/assets/img/service/tire-services.jpg" as="image" />
+    <link rel="preload" href="./public/assets/img/service/electrical-services.jpg" as="image" />
+    <link rel="preload" href="./public/assets/img/service/ac-system-service.jpg" as="image" />
+    
+    <!-- DNS Prefetch for External Resources -->
+    <link rel="dns-prefetch" href="//images.pexels.com" />
+    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://car--repair-sheffield.netlify.app/" />
-    <meta property="og:title" content="Malen Car Repair - Professional Auto Services Sheffield" />
-    <meta property="og:description" content="Professional car repair and automotive services in Sheffield. Expert technicians, quality workmanship, and exceptional customer service." />
-    <meta property="og:image" content="/assets/img/hero/hero_bg_1_1.jpg" />
+    <meta property="og:title" content="Malen Car Repair - Professional Auto Services Sheffield | Expert Car Mechanics" />
+    <meta property="og:description" content="Professional car repair and automotive services in Sheffield. Expert technicians, quality workmanship, and exceptional customer service. Book your appointment today!" />
+    <meta property="og:image" content="./public/assets/img/hero/hero_bg_1_1.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="Malen Car Repair" />
+    <meta property="og:locale" content="en_GB" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://car--repair-sheffield.netlify.app/" />
     <meta property="twitter:title" content="Malen Car Repair - Professional Auto Services Sheffield" />
     <meta property="twitter:description" content="Professional car repair and automotive services in Sheffield. Expert technicians, quality workmanship, and exceptional customer service." />
-    <meta property="twitter:image" content="/assets/img/hero/hero_bg_1_1.jpg" />
+    <meta property="twitter:image" content="./public/assets/img/hero/hero_bg_1_1.jpg" />
+    
+    <!-- Additional Meta Tags -->
+    <meta name="theme-color" content="#2563eb" />
+    <meta name="msapplication-TileColor" content="#2563eb" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Malen Car Repair" />
+    
+    <!-- Structured Data for Local Business -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "AutoRepair",
+      "name": "Malen Car Repair",
+      "description": "Professional car repair and automotive services in Sheffield",
+      "url": "https://car--repair-sheffield.netlify.app/",
+      "telephone": "+44-114-123-4567",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "123 Auto Street",
+        "addressLocality": "Sheffield",
+        "postalCode": "S1 1AA",
+        "addressCountry": "GB"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 53.3811,
+        "longitude": -1.4701
+      },
+      "openingHours": "Mo-Fr 08:00-18:00, Sa 09:00-17:00",
+      "priceRange": "££",
+      "image": "./public/assets/img/hero/hero_bg_1_1.jpg",
+      "sameAs": [
+        "https://www.facebook.com/malencarrepair",
+        "https://www.instagram.com/malencarrepair"
+      ]
+    }
+    </script>
 
-    <title>Malen Car Repair - Professional Auto Services Sheffield</title>
+    <title>Malen Car Repair - Professional Auto Services Sheffield | Expert Car Mechanics</title>
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/index.tsx"></script>
+    <script type="module" src="./src/index.tsx"></script>
+    
+    <!-- Performance Monitoring -->
+    <script>
+      // Simple performance monitoring
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          const perfData = performance.getEntriesByType('navigation')[0];
+          console.log('Page Load Time:', perfData.loadEventEnd - perfData.loadEventStart, 'ms');
+        }, 0);
+      });
+    </script>
   </body>
 </html>

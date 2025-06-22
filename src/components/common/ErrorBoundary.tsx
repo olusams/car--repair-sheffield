@@ -46,10 +46,10 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundarySta
       }
 
       return (
-        <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50/30 to-purple-50/30 flex items-center justify-center p-4">
+        <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 via-opacity-30 to-purple-50 to-opacity-30 flex items-center justify-center p-4">
           <div className="max-w-md w-full bg-white rounded-3xl shadow-2xl p-8 text-center relative overflow-hidden">
             {/* Background Effects */}
-            <div className="absolute inset-0 bg-gradient-to-br from-red-50/50 via-orange-50/30 to-yellow-50/50"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-red-50 from-opacity-50 via-orange-50 via-opacity-30 to-yellow-50 to-opacity-50"></div>
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-red-500 via-orange-500 to-yellow-500"></div>
             
             {/* Floating Elements */}
@@ -97,7 +97,7 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundarySta
               <div className="space-y-3">
                 <button
                   onClick={this.resetError}
-                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 hover:shadow-lg hover:scale-105 focus:outline-none focus:ring-4 focus:ring-blue-500/30 active:scale-95 flex items-center justify-center space-x-2"
+                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 hover:shadow-lg hover:scale-105 focus:outline-none focus:ring-4 focus:ring-blue-500 focus:ring-opacity-30 active:scale-95 flex items-center justify-center space-x-2"
                 >
                   <RefreshCw className="w-4 h-4" />
                   <span>Try Again</span>
@@ -105,7 +105,7 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundarySta
                 
                 <Link
                   to="/"
-                  className="w-full bg-gradient-to-r from-gray-100 to-gray-200 text-gray-800 font-semibold py-3 px-6 rounded-xl transition-all duration-300 hover:shadow-lg hover:scale-105 focus:outline-none focus:ring-4 focus:ring-gray-500/30 active:scale-95 flex items-center justify-center space-x-2"
+                  className="w-full bg-gradient-to-r from-gray-100 to-gray-200 text-gray-800 font-semibold py-3 px-6 rounded-xl transition-all duration-300 hover:shadow-lg hover:scale-105 focus:outline-none focus:ring-4 focus:ring-gray-500 focus:ring-opacity-30 active:scale-95 flex items-center justify-center space-x-2"
                 >
                   <Home className="w-4 h-4" />
                   <span>Go Home</span>
