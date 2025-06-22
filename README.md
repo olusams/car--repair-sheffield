@@ -1,241 +1,144 @@
-# 🚗 Malen Auto Services - Modern Car Repair Website
+# AutoFix Pro - Modern Car Repair Website
 
-A modern, responsive car repair and automotive services website built with React, TypeScript, and Tailwind CSS. This project features a beautiful UI with enhanced user experience, comprehensive service booking, and professional design.
+A modern, responsive car repair and automotive services website built with React, TypeScript, and Vite. Features a clean design, smooth animations, and excellent user experience.
 
-## ✨ Features
+## 🚀 Features
 
-### 🎨 **Enhanced Visual Design**
-- **Modern UI/UX**: Clean, professional design with smooth animations
-- **Responsive Layout**: Fully responsive across all devices
-- **Beautiful Gradients**: Custom gradient backgrounds and text effects
-- **Glass Morphism**: Modern backdrop blur effects and transparency
-- **Enhanced Animations**: Smooth page transitions and hover effects
+- **Modern React Architecture** - Built with React 18, TypeScript, and Vite
+- **Responsive Design** - Mobile-first approach with Tailwind CSS
+- **Smooth Animations** - Framer Motion for engaging user interactions
+- **SEO Optimized** - Structured data, meta tags, and semantic HTML
+- **Performance Focused** - Optimized bundle size and loading times
+- **Accessibility** - WCAG compliant with proper ARIA labels
+- **Video Integration** - Interactive video components with fallback support
 
-### 🔧 **Core Functionality**
-- **Service Booking**: Complete appointment scheduling system
-- **Service Catalog**: Comprehensive automotive services with pricing
-- **Customer Testimonials**: Social proof with verified reviews
-- **Contact Information**: Multiple contact methods and business hours
-- **Image Optimization**: Optimized images with fallback handling
+## 🛠️ Tech Stack
 
-### 🚀 **Technical Features**
-- **React 18**: Latest React features with hooks
-- **TypeScript**: Full type safety and better development experience
-- **Tailwind CSS**: Utility-first CSS framework
-- **Framer Motion**: Smooth animations and transitions
-- **React Router**: Client-side routing
-- **Responsive Design**: Mobile-first approach
+- **Frontend**: React 18, TypeScript, Vite
+- **Styling**: Tailwind CSS, Framer Motion
+- **Icons**: Lucide React
+- **Routing**: React Router DOM
+- **Build Tool**: Vite
+- **Linting**: ESLint
 
-## 🛠️ **Services Offered**
+## 📦 Installation
 
-### Engine Services
-- Engine Repair & Diagnostics
-- Performance Tuning
-- Engine Rebuilds
-- Oil Leak Repair
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/your-username/autofix-pro-modern.git
+   cd autofix-pro-modern
+   ```
 
-### Brake Services
-- Brake Pad Replacement
-- Rotor Resurfacing
-- Brake Fluid Flush
-- ABS System Repair
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-### Maintenance Services
-- Oil Change (Full-synthetic)
-- Tire Service & Rotation
-- AC/Heating Repair
-- Transmission Service
+3. **Start development server**
+   ```bash
+   npm run dev
+   ```
 
-### Electrical Services
-- Battery Replacement
-- Alternator Repair
-- Starter Service
-- Computer Diagnostics
+4. **Build for production**
+   ```bash
+   npm run build
+   ```
 
-## 📱 **Pages & Components**
-
-### Main Pages
-- **Home**: Hero slider, featured services, testimonials
-- **About**: Company information, team, mission
-- **Services**: Complete service catalog with pricing
-- **Contact**: Contact form, location, business hours
-- **Appointment**: Advanced booking system with service selection
-
-### Enhanced Components
-- **Hero Slider**: Auto-playing slider with navigation
-- **Service Cards**: Interactive cards with video support
-- **Testimonial Cards**: Customer reviews with ratings
-- **Appointment Form**: Multi-step booking process
-- **Header/Footer**: Professional navigation and information
-
-## 🎯 **Key Improvements Made**
-
-### 1. **Enhanced Visual Appeal**
-- ✅ Modern gradient backgrounds
-- ✅ Glass morphism effects
-- ✅ Smooth animations and transitions
-- ✅ Professional color scheme
-- ✅ Enhanced typography
-
-### 2. **Improved User Experience**
-- ✅ Intuitive navigation
-- ✅ Responsive design
-- ✅ Loading states and error handling
-- ✅ Form validation and feedback
-- ✅ Accessibility improvements
-
-### 3. **Technical Enhancements**
-- ✅ TypeScript implementation
-- ✅ Component optimization
-- ✅ Image error handling
-- ✅ Performance improvements
-- ✅ Code organization
-
-### 4. **Content & Functionality**
-- ✅ Comprehensive service catalog
-- ✅ Customer testimonials
-- ✅ Business information
-- ✅ Contact details
-- ✅ Appointment booking
-
-## 🚀 **Getting Started**
-
-### Prerequisites
-- Node.js (v16 or higher)
-- npm or yarn
-
-### Installation
-```bash
-# Clone the repository
-git clone <repository-url>
-
-# Navigate to project directory
-cd malen-car-repair-modern
-
-# Install dependencies
-npm install
-
-# Start development server
-npm start
-```
-
-### Build for Production
-```bash
-# Build the project
-npm run build
-
-# The build files will be in the 'build' directory
-```
-
-## 📁 **Project Structure**
+## 🏗️ Project Structure
 
 ```
 src/
-├── components/
-│   ├── common/          # Reusable components
-│   │   ├── HeroSlider.tsx
-│   │   ├── ServiceCard.tsx
-│   │   ├── TestimonialCard.tsx
-│   │   └── ...
-│   └── layout/          # Layout components
-│       ├── Header.tsx
-│       └── Footer.tsx
-├── data/               # Data files
-│   ├── services.ts
-│   ├── testimonials.ts
-│   └── siteConfig.ts
+├── components/          # Reusable React components
+│   ├── common/         # Shared components (buttons, modals, etc.)
+│   └── layout/         # Layout components (header, footer)
+├── data/               # Static data and configuration
 ├── pages/              # Page components
-│   ├── HomePage.tsx
-│   ├── AboutPage.tsx
-│   ├── ServicesPage.tsx
-│   ├── ContactPage.tsx
-│   └── AppointmentPage.tsx
-├── App.tsx             # Main app component
-├── index.tsx           # Entry point
-└── index.css           # Global styles
+├── styles/             # Global styles and CSS
+├── types/              # TypeScript type definitions
+└── utils/              # Utility functions
 ```
 
-## 🎨 **Design System**
+## 🎨 Customization
 
-### Colors
-- **Primary**: Red gradient (#ef4444 to #dc2626)
-- **Secondary**: Gray scale (#64748b to #0f172a)
-- **Accent**: Orange (#f97316)
-- **Success**: Green (#10b981)
-- **Warning**: Yellow (#f59e0b)
+### Colors and Branding
+Update the Tailwind configuration in `tailwind.config.js` to match your brand colors:
 
-### Typography
-- **Display Font**: Plus Jakarta Sans
-- **Body Font**: Inter
-- **Responsive**: Scales from mobile to desktop
+```javascript
+module.exports = {
+  theme: {
+    extend: {
+      colors: {
+        primary: {
+          50: '#eff6ff',
+          500: '#3b82f6',
+          600: '#2563eb',
+          700: '#1d4ed8',
+        }
+      }
+    }
+  }
+}
+```
 
-### Components
-- **Buttons**: Multiple variants with hover effects
-- **Cards**: Interactive cards with shadows
-- **Forms**: Enhanced input styling with validation
-- **Navigation**: Smooth transitions and active states
+### Content Updates
+- **Business Information**: Update `src/data/siteConfig.ts`
+- **Services**: Modify `src/data/services.ts`
+- **SEO**: Edit `src/components/common/SEOOptimizer.tsx`
 
-## 📱 **Responsive Design**
+## 📱 Responsive Design
 
-The website is fully responsive and optimized for:
-- **Mobile**: 320px - 768px
+The website is fully responsive with breakpoints:
+- **Mobile**: < 768px
 - **Tablet**: 768px - 1024px
-- **Desktop**: 1024px+
+- **Desktop**: > 1024px
 
-## 🔧 **Customization**
+## 🚀 Deployment
 
-### Adding New Services
-1. Update `src/data/services.ts`
-2. Add service images to `public/assets/img/update_1/service/`
-3. Update service cards in components
+### Netlify (Recommended)
+1. Connect your GitHub repository to Netlify
+2. Set build command: `npm run build`
+3. Set publish directory: `dist`
+4. Deploy!
 
-### Modifying Colors
-1. Update `tailwind.config.js` color palette
-2. Modify CSS variables in `src/index.css`
+### Vercel
+1. Install Vercel CLI: `npm i -g vercel`
+2. Run: `vercel`
+3. Follow the prompts
 
-### Adding New Pages
-1. Create new page component in `src/pages/`
-2. Add route in `src/App.tsx`
-3. Update navigation in `src/components/layout/Header.tsx`
+### Manual Deployment
+1. Build the project: `npm run build`
+2. Upload the `dist` folder to your web server
 
-## 🚀 **Performance Optimizations**
+## 🔧 Development
 
-- **Image Optimization**: WebP format with fallbacks
-- **Code Splitting**: Lazy loading of components
-- **Bundle Optimization**: Tree shaking and minification
-- **Caching**: Browser caching strategies
-- **CDN Ready**: Optimized for content delivery networks
+### Available Scripts
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
 
-## 📞 **Contact Information**
+### Code Style
+This project uses ESLint with TypeScript support. Run `npm run lint` to check for issues.
 
-**Malen Auto Services**
-- **Phone**: +44 (0) 113 123 4567
-- **Email**: info@malenautoservices.co.uk
-- **Address**: 123 Bradford Road, Leeds, West Yorkshire, LS1 2AB
-- **Hours**: Mon-Fri 8:00 AM - 6:00 PM, Sat 9:00 AM - 4:00 PM
+## 📄 License
 
-## 📄 **License**
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## 🤝 **Contributing**
+## 🤝 Contributing
 
 1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
+2. Create a feature branch: `git checkout -b feature-name`
+3. Commit your changes: `git commit -am 'Add feature'`
+4. Push to the branch: `git push origin feature-name`
 5. Submit a pull request
 
-## 📈 **Future Enhancements**
+## 📞 Support
 
-- [ ] Online payment integration
-- [ ] Customer portal
-- [ ] Service history tracking
-- [ ] SMS notifications
-- [ ] Multi-language support
-- [ ] Advanced analytics
-- [ ] Mobile app development
+For support and questions:
+- Email: info@autofixpro.co.uk
+- Phone: 0114 385 4721
+- Website: https://autofixpro.co.uk
 
 ---
 
-**Built with ❤️ for the automotive industry** 
+Built with ❤️ by AutoFix Pro Team 

@@ -39089,7 +39089,8 @@ hr.style1 {
 
 .blog-item-wrap {
   display: grid;
-  grid-template-areas: 'one one one one one one one one one two two two' 'three three three three three three three three three two two two';
+  grid-template-areas: 'one one one one one one one one one two two two'
+ 'three three three three three three three three three two two two';
 }
 
 .blog-item .blog-img {
@@ -39195,7 +39196,9 @@ hr.style1 {
   }
   .blog-item-wrap {
     gap: 24px;
-    grid-template-areas: 'one one' 'two two' 'three three';
+    grid-template-areas: 'one one'
+ 'two two'
+ 'three three';
   }
   .blog-item .blog-text {
     display: none;

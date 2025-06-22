@@ -20,7 +20,7 @@ export const SEOOptimizer: React.FC<SEOOptimizerProps> = ({
   type = 'website',
   structuredData
 }) => {
-  const fullTitle = `${title} | Malen Car Repair Sheffield`;
+  const fullTitle = `${title} | AutoFix Pro Sheffield`;
   const fullUrl = url.startsWith('http') ? url : `https://car--repair-sheffield.netlify.app${url}`;
   const fullImage = image.startsWith('http') ? image : `https://car--repair-sheffield.netlify.app${image}`;
 
@@ -38,7 +38,7 @@ export const SEOOptimizer: React.FC<SEOOptimizerProps> = ({
       <meta property="og:image" content={fullImage} />
       <meta property="og:url" content={fullUrl} />
       <meta property="og:type" content={type} />
-      <meta property="og:site_name" content="Malen Car Repair" />
+      <meta property="og:site_name" content="AutoFix Pro" />
       <meta property="og:locale" content="en_GB" />
 
       {/* Twitter Card */}
@@ -66,7 +66,7 @@ export const structuredData = {
     "description": description,
     "provider": {
       "@type": "AutoRepair",
-      "name": "Malen Car Repair",
+      "name": "AutoFix Pro",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "123 Auto Street",
@@ -85,13 +85,13 @@ export const structuredData = {
   contact: {
     "@context": "https://schema.org",
     "@type": "ContactPage",
-    "name": "Contact Malen Car Repair",
+    "name": "Contact AutoFix Pro",
     "description": "Get in touch with our expert car repair team in Sheffield",
     "mainEntity": {
       "@type": "Organization",
-      "name": "Malen Car Repair",
+      "name": "AutoFix Pro",
       "telephone": "+44-114-123-4567",
-      "email": "info@malencarrepair.co.uk",
+      "email": "info@autofixpro.co.uk",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "123 Auto Street",
@@ -105,11 +105,11 @@ export const structuredData = {
   about: {
     "@context": "https://schema.org",
     "@type": "AboutPage",
-    "name": "About Malen Car Repair",
+    "name": "About AutoFix Pro",
     "description": "Learn about our professional car repair services and expert team in Sheffield",
     "mainEntity": {
       "@type": "Organization",
-      "name": "Malen Car Repair",
+      "name": "AutoFix Pro",
       "description": "Professional car repair and automotive services in Sheffield",
       "foundingDate": "2010",
       "numberOfEmployees": "15",
