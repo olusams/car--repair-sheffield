@@ -6,6 +6,7 @@ import ServiceCard from '../components/common/ServiceCard';
 import { services, serviceCategories } from '../data/services';
 import { siteConfig } from '../data/siteConfig';
 import OptimizedImage from '../components/common/OptimizedImage';
+import IconWrapper from '../components/common/IconWrapper';
 
 const ServicesPage: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -81,7 +82,7 @@ const ServicesPage: React.FC = () => {
                 className="text-center group"
               >
                 <div className="w-16 h-16 bg-gradient-to-br from-primary-100 to-primary-200 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <stat.icon className="w-8 h-8 text-primary-600" />
+                  <IconWrapper icon={stat.icon} className="w-8 h-8" colorClassName="text-primary-600" />
                 </div>
                 <div className="text-4xl md:text-5xl font-display font-bold mb-2 text-primary-600 group-hover:scale-110 transition-transform duration-300">{stat.number}</div>
                 <div className="text-secondary-600 font-medium">{stat.label}</div>
@@ -143,7 +144,7 @@ const ServicesPage: React.FC = () => {
                     
                     {/* Service Icon Overlay */}
                     <div className="absolute top-4 right-4 w-16 h-16 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                      <service.icon className="w-8 h-8 text-white" />
+                      <IconWrapper icon={service.icon} className="w-8 h-8" colorClassName="text-white" />
                     </div>
 
                     {/* Duration Badge */}

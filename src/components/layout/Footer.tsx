@@ -15,6 +15,7 @@ import {
   Youtube
 } from 'lucide-react';
 import { siteConfig } from '../../data/siteConfig';
+import IconWrapper from '../common/IconWrapper';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -193,7 +194,7 @@ const Footer: React.FC = () => {
                 {/* Phone */}
                 <div className="flex items-start space-x-3 group">
                   <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                    <Phone className="w-4 h-4 text-white" />
+                    <IconWrapper icon={Phone} className="w-4 h-4" colorClassName="text-white" />
                   </div>
                   <div>
                     <p className="text-gray-300 text-sm">Phone</p>
@@ -210,7 +211,7 @@ const Footer: React.FC = () => {
                 {/* Email */}
                 <div className="flex items-start space-x-3 group">
                   <div className="w-8 h-8 bg-gradient-to-br from-purple-600 to-purple-700 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                    <Mail className="w-4 h-4 text-white" />
+                    <IconWrapper icon={Mail} className="w-4 h-4" colorClassName="text-white" />
                   </div>
                   <div>
                     <p className="text-gray-300 text-sm">Email</p>
@@ -226,7 +227,7 @@ const Footer: React.FC = () => {
                 {/* Address */}
                 <div className="flex items-start space-x-3 group">
                   <div className="w-8 h-8 bg-gradient-to-br from-green-600 to-green-700 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                    <MapPin className="w-4 h-4 text-white" />
+                    <IconWrapper icon={MapPin} className="w-4 h-4" colorClassName="text-white" />
                   </div>
                   <div>
                     <p className="text-gray-300 text-sm">Address</p>
@@ -240,7 +241,7 @@ const Footer: React.FC = () => {
                 {/* Hours */}
                 <div className="flex items-start space-x-3 group">
                   <div className="w-8 h-8 bg-gradient-to-br from-yellow-600 to-yellow-700 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                    <Clock className="w-4 h-4 text-white" />
+                    <IconWrapper icon={Clock} className="w-4 h-4" colorClassName="text-white" />
                   </div>
                   <div>
                     <p className="text-gray-300 text-sm">Hours</p>
@@ -294,11 +295,11 @@ const Footer: React.FC = () => {
                   whileTap={{ scale: 0.95 }}
                   aria-label={social.label}
                 >
-                  {platform === 'facebook' && <Facebook className="w-5 h-5" />}
-                  {platform === 'twitter' && <Twitter className="w-5 h-5" />}
-                  {platform === 'instagram' && <Instagram className="w-5 h-5" />}
-                  {platform === 'linkedin' && <Linkedin className="w-5 h-5" />}
-                  {platform === 'youtube' && <Youtube className="w-5 h-5" />}
+                  {platform === 'facebook' && <IconWrapper icon={Facebook} className="w-5 h-5" colorClassName="text-white" />}
+                  {platform === 'twitter' && <IconWrapper icon={Twitter} className="w-5 h-5" colorClassName="text-white" />}
+                  {platform === 'instagram' && <IconWrapper icon={Instagram} className="w-5 h-5" colorClassName="text-white" />}
+                  {platform === 'linkedin' && <IconWrapper icon={Linkedin} className="w-5 h-5" colorClassName="text-white" />}
+                  {platform === 'youtube' && <IconWrapper icon={Youtube} className="w-5 h-5" colorClassName="text-white" />}
                 </motion.a>
               ))}
             </motion.div>

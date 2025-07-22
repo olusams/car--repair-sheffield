@@ -11,6 +11,7 @@ import { services } from '../data/services';
 import { heroSlides } from '../data/heroSlides';
 import { siteConfig } from '../data/siteConfig';
 import { testimonials } from '../data/testimonials';
+import IconWrapper from '../components/common/IconWrapper';
 
 const HomePage: React.FC = () => {
   const featuredServices = services.filter(service => service.popular).slice(0, 3);
@@ -53,7 +54,7 @@ const HomePage: React.FC = () => {
               >
                 <div className="relative">
                   <div className="w-20 h-20 bg-gradient-to-br from-primary-100 to-primary-200 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 hover-lift">
-                    <stat.icon className="w-10 h-10 text-primary-600 group-hover:scale-110 transition-transform duration-300" />
+                    <IconWrapper icon={stat.icon} className="w-10 h-10" colorClassName="text-primary-600" />
                   </div>
                   <div className="absolute inset-0 bg-gradient-to-br from-primary-100 to-primary-200 rounded-3xl opacity-0 group-hover:opacity-20 transition-opacity duration-500 blur-xl scale-150"></div>
                 </div>
@@ -189,7 +190,7 @@ const HomePage: React.FC = () => {
                   {/* Enhanced Icon */}
                   <div className="relative mb-6">
                     <div className={`w-16 h-16 bg-gradient-to-br ${feature.color} rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 hover-glow`}>
-                      <feature.icon className="w-8 h-8 text-white group-hover:scale-110 transition-transform duration-300" />
+                      <IconWrapper icon={feature.icon} className="w-8 h-8" colorClassName="text-white" />
                     </div>
                     <div className={`absolute inset-0 bg-gradient-to-br ${feature.color} rounded-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-500 blur-xl scale-150`}></div>
                   </div>
@@ -369,7 +370,7 @@ const HomePage: React.FC = () => {
                     className="flex items-center space-x-4 group"
                   >
                     <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
-                      <feature.icon className="w-6 h-6 text-white group-hover:scale-110 transition-transform duration-300" />
+                      <IconWrapper icon={feature.icon} className="w-6 h-6" colorClassName="text-white" />
                     </div>
                     <div>
                       <h3 className="font-semibold text-gray-900 group-hover:text-gradient transition-colors duration-300">
