@@ -1,6 +1,5 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { siteConfig } from '../../data/siteConfig';
 
 interface SEOHeadProps {
   title?: string;
@@ -18,62 +17,62 @@ interface SEOHeadProps {
 }
 
 const SEOHead: React.FC<SEOHeadProps> = ({
-  title = siteConfig.seo.title,
-  description = siteConfig.seo.description,
-  keywords = siteConfig.seo.keywords.join(', '),
-  image = siteConfig.seo.ogImage,
+  title = 'AutoFix Pro - Professional Auto Repair & Services',
+  description = 'Professional automotive repair and maintenance services. Expert technicians, quality workmanship, and exceptional customer service. Schedule your appointment today!',
+  keywords = 'auto repair, car service, automotive maintenance, engine repair, brake service, oil change, transmission service, electrical repair, AC service, tire service, diagnostics',
+  image = '/assets/img/update_1/hero/hero_bg_3_1.jpg',
   url = window.location.href,
   type = 'website',
-  author = siteConfig.seo.author,
+  author = 'AutoFix Pro',
   publishedTime,
   modifiedTime,
   section,
-  tags = siteConfig.seo.keywords,
+  tags = ['auto repair', 'car service', 'automotive'],
   structuredData
 }) => {
-  const siteName = siteConfig.business.name;
+  const siteName = 'AutoFix Pro';
   const fullTitle = title.includes(siteName) ? title : `${title} | ${siteName}`;
   
   // Default structured data for auto repair business
   const defaultStructuredData = {
     "@context": "https://schema.org",
     "@type": "AutoRepair",
-    "name": siteConfig.business.name,
+    "name": "AutoFix Pro",
     "description": description,
-    "url": "https://autofixpro.co.uk",
-    "logo": "https://autofixpro.co.uk/assets/img/logo-blue.svg",
+    "url": "https://autofixpro.com",
+    "logo": "https://autofixpro.com/assets/img/logo-blue.svg",
     "image": image,
-    "telephone": siteConfig.contact.phone,
+          "telephone": "+44-20-7946-0958",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": siteConfig.contact.address.street,
-      "addressLocality": siteConfig.contact.address.city,
-      "addressRegion": siteConfig.contact.address.state,
-      "postalCode": siteConfig.contact.address.zip,
-      "addressCountry": siteConfig.contact.address.country
+              "streetAddress": "97 W. Irving Park Road",
+              "addressLocality": "London",
+        "addressRegion": "England",
+              "postalCode": "SW3 5LA",
+        "addressCountry": "GB"
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": 53.3811,
-      "longitude": -1.4701
+      "latitude": 40.7128,
+      "longitude": -74.0060
     },
     "openingHours": [
-      "Mo-Fr 07:30-18:00",
-      "Sa 08:00-16:00"
+      "Mo-Fr 08:00-18:00",
+      "Sa 09:00-17:00"
     ],
     "priceRange": "££",
     "paymentAccepted": ["Cash", "Credit Card", "Debit Card"],
     "currenciesAccepted": "GBP",
     "areaServed": {
       "@type": "City",
-      "name": "Sheffield"
+      "name": "Auto City"
     },
     "serviceArea": {
       "@type": "GeoCircle",
       "geoMidpoint": {
         "@type": "GeoCoordinates",
-        "latitude": 53.3811,
-        "longitude": -1.4701
+        "latitude": 40.7128,
+        "longitude": -74.0060
       },
       "geoRadius": "50000"
     },
@@ -154,7 +153,7 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       <meta property="og:image" content={image} />
       <meta property="og:url" content={url} />
       <meta property="og:site_name" content={siteName} />
-      <meta property="og:locale" content="en_GB" />
+      <meta property="og:locale" content="en_US" />
       
       {/* Twitter Card Meta Tags */}
       <meta name="twitter:card" content="summary_large_image" />
@@ -206,24 +205,24 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       </script>
       
       {/* Additional Meta Tags for Auto Repair Business */}
-      <meta name="business:contact_data:street_address" content={siteConfig.contact.address.street} />
-      <meta name="business:contact_data:locality" content={siteConfig.contact.address.city} />
-      <meta name="business:contact_data:region" content={siteConfig.contact.address.state} />
-      <meta name="business:contact_data:postal_code" content={siteConfig.contact.address.zip} />
-      <meta name="business:contact_data:country_name" content={siteConfig.contact.address.country} />
-      <meta name="business:contact_data:phone_number" content={siteConfig.contact.phone} />
-      <meta name="business:contact_data:email" content={siteConfig.contact.email} />
-      <meta name="business:contact_data:website" content="https://autofixpro.co.uk" />
+              <meta name="business:contact_data:street_address" content="97 W. Irving Park Road" />
+              <meta name="business:contact_data:locality" content="London" />
+        <meta name="business:contact_data:region" content="England" />
+              <meta name="business:contact_data:postal_code" content="SW3 5LA" />
+        <meta name="business:contact_data:country_name" content="United Kingdom" />
+              <meta name="business:contact_data:phone_number" content="+44-20-7946-0958" />
+      <meta name="business:contact_data:email" content="info@autofixpro.com" />
+      <meta name="business:contact_data:website" content="https://autofixpro.com" />
       
       {/* Service Hours */}
       <meta name="business:service_area:business_type" content="Auto Repair" />
       <meta name="business:service_area:service_radius" content="50 miles" />
       
       {/* Local Business Schema */}
-      <meta name="geo.region" content="GB-SYK" />
-      <meta name="geo.placename" content="Sheffield" />
-      <meta name="geo.position" content="53.3811;-1.4701" />
-      <meta name="ICBM" content="53.3811, -1.4701" />
+      <meta name="geo.region" content="US-AC" />
+      <meta name="geo.placename" content="Auto City" />
+      <meta name="geo.position" content="40.7128;-74.0060" />
+      <meta name="ICBM" content="40.7128, -74.0060" />
     </Helmet>
   );
 };

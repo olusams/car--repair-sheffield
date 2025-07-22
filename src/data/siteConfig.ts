@@ -1,15 +1,14 @@
-import { ComponentType } from 'react';
 import { 
-  Facebook, 
-  Twitter, 
-  Instagram, 
-  Linkedin, 
-  Youtube, 
   Users, 
   Clock, 
   Star, 
-  Shield, 
-  Award
+  Shield,
+  Award,
+  Facebook,
+  Twitter,
+  Instagram,
+  Linkedin,
+  Youtube
 } from 'lucide-react';
 
 export interface SiteConfig {
@@ -40,20 +39,20 @@ export interface SiteConfig {
   social: {
     [key: string]: {
       url: string;
-      icon: ComponentType<{ className?: string }>;
+      icon: any;
       label: string;
     };
   };
   stats: {
     label: string;
     number: string;
-    icon: ComponentType<{ className?: string }>;
+    icon: any;
     description?: string;
   }[];
   features: {
     title: string;
     description: string;
-    icon: ComponentType<{ className?: string }>;
+    icon: any;
     color: string;
   }[];
   testimonials: {
@@ -77,7 +76,7 @@ export interface SiteConfig {
       id: string;
       name: string;
       description: string;
-      icon: ComponentType<{ className?: string }>;
+      icon: any;
       color: string;
     }[];
     popular: string[];
@@ -112,32 +111,31 @@ export const siteConfig: SiteConfig = {
       "VOSA Approved"
     ],
     awards: [
-      "Best Auto Repair 2023 - Sheffield Business Awards",
-      "Customer Choice Award 2022 - Trustpilot",
+      "Best Auto Repair 2023 - London Business Awards",
       "Excellence in Service 2021 - Better Business Bureau",
       "Top Rated Local Business 2020 - Google Reviews"
     ]
   },
   contact: {
-    phone: "0114 385 4721",
+    phone: "+44 20 7946 0958",
     email: "info@autofixpro.co.uk",
     address: {
-      street: "145 Ecclesall Road",
-      city: "Sheffield",
-      state: "South Yorkshire",
-      zip: "S11 8JB",
+      street: "97 W. Irving Park Road",
+      city: "London",
+      state: "England",
+      zip: "SW3 5LA",
       country: "United Kingdom"
     },
     hours: {
-      "Monday": "8:00 AM - 6:00 PM",
-      "Tuesday": "8:00 AM - 6:00 PM",
-      "Wednesday": "8:00 AM - 6:00 PM",
-      "Thursday": "8:00 AM - 6:00 PM",
-      "Friday": "8:00 AM - 6:00 PM",
-      "Saturday": "9:00 AM - 5:00 PM",
+      "Monday": "7:30 AM - 6:00 PM",
+      "Tuesday": "7:30 AM - 6:00 PM",
+      "Wednesday": "7:30 AM - 6:00 PM",
+      "Thursday": "7:30 AM - 6:00 PM",
+      "Friday": "7:30 AM - 6:00 PM",
+      "Saturday": "8:00 AM - 4:00 PM",
       "Sunday": "Closed"
     },
-    emergency: "0114 385 4999"
+    emergency: "+44 20 7946 9111"
   },
   social: {
     facebook: {

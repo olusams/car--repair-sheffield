@@ -1,41 +1,27 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import OptimizedImage from './OptimizedImage';
-import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
-
-interface GalleryItem {
-  id: number;
-  title: string;
-  category?: string;
-  image: string;
-  description: string;
-  price?: string;
-  rating?: number;
-}
+import { galleryItems } from '../../data/galleryItems';
 
 interface GallerySectionProps {
-  items: GalleryItem[];
-  title: React.ReactNode;
-  subtitle: string;
-  ctaLink?: string;
-  ctaText?: string;
+  className?: string;
 }
 
-const GallerySection: React.FC<GallerySectionProps> = ({ 
-  items,
-  title,
-  subtitle,
-  ctaLink,
-  ctaText,
-}) => {
+const GallerySection: React.FC<GallerySectionProps> = ({ className = '' }) => {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
 
-  const categories = ['all', ...Array.from(new Set(items.map(item => item.category).filter(Boolean)))];
+  // Get unique categories using reduce instead of Set
+  const uniqueCategories = galleryItems.reduce<string[]>((acc, item) => {
+    if (!acc.includes(item.category)) {
+      acc.push(item.category);
+    }
+    return acc;
+  }, []);
+  const categories = ['all', ...uniqueCategories];
 
   const filteredItems = selectedCategory === 'all'
-    ? items
-    : items.filter(item => item.category === selectedCategory);
+    ? galleryItems
+    : galleryItems.filter(item => item.category === selectedCategory);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -61,212 +47,111 @@ const GallerySection: React.FC<GallerySectionProps> = ({
   };
 
   return (
-    <section style={{
-      padding: 'clamp(5rem, 10vw, 8rem) 0',
-      background: 'white'
-    }}>
-      <div style={{
-        maxWidth: '1200px',
-        margin: '0 auto',
-        padding: '0 clamp(1rem, 4vw, 2rem)'
-      }}>
+    <section className={`section-padding bg-gradient-to-br from-gray-50 to-white ${className}`}>
+      <div className="container-custom">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          style={{ textAlign: 'center', marginBottom: '64px' }}
+          className="text-center mb-16"
         >
-          <div style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '8px',
-            background: 'linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%)',
-            color: 'white',
-            borderRadius: '9999px',
-            padding: '8px 24px',
-            marginBottom: '24px'
-          }}>
-            <span style={{
-              fontSize: '14px',
-              fontWeight: 'bold'
-            }}>PRODUCTS</span>
+          <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-full px-6 py-2 mb-6">
+            <span className="text-sm font-bold">PRODUCTS</span>
           </div>
-          <h2 style={{
-            fontFamily: 'Playfair Display, serif',
-            fontWeight: '800',
-            fontSize: 'clamp(2.5rem, 5vw, 4rem)',
-            marginBottom: '24px',
-            color: '#111827'
-          }}>
-            {title}
+          <h2 className="font-display font-bold text-4xl md:text-5xl mb-6">
+            Our <span className="text-gradient">Product Collection</span>
           </h2>
-          <p style={{
-            fontSize: '20px',
-            color: '#6b7280',
-            maxWidth: '768px',
-            margin: '0 auto',
-            lineHeight: '1.7'
-          }}>
-            {subtitle}
+          <p className="text-xl text-secondary-600 max-w-3xl mx-auto leading-relaxed">
+            Discover our premium automotive parts and accessories
           </p>
         </motion.div>
 
-        {/* Filter Buttons (only if categories exist) */}
-        {categories.length > 2 && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-            style={{
-              display: 'flex',
-              flexWrap: 'wrap',
-              justifyContent: 'center',
-              gap: '16px',
-              marginBottom: '48px'
-            }}
-          >
-            {categories.map((category) => (
-              <button
-                key={category}
-                style={{
-                  padding: '12px 24px',
-                  borderRadius: '9999px',
-                  fontWeight: '500',
-                  transition: 'all 0.3s ease',
-                  border: selectedCategory === category ? 'none' : '1px solid #e5e7eb',
-                  background: selectedCategory === category
-                    ? 'linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%)'
-                    : 'white',
-                  color: selectedCategory === category ? 'white' : '#6b7280',
-                  boxShadow: selectedCategory === category ? '0 10px 25px rgba(59, 130, 246, 0.3)' : 'none',
-                  cursor: 'pointer'
-                }}
-                onClick={() => setSelectedCategory(category!)}
-              >
-                {category!.charAt(0).toUpperCase() + category!.slice(1)}
-              </button>
-            ))}
-          </motion.div>
-        )}
+        {/* Filter Buttons */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: true }}
+          className="flex flex-wrap justify-center gap-4 mb-12"
+        >
+          {categories.map((category) => (
+            <button
+              key={category}
+              className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
+                selectedCategory === category
+                  ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg'
+                  : 'bg-white text-gray-600 hover:bg-gray-50 border border-gray-200 hover:border-blue-300'
+              }`}
+              onClick={() => setSelectedCategory(category)}
+            >
+              {category.charAt(0).toUpperCase() + category.slice(1)}
+            </button>
+          ))}
+        </motion.div>
 
-        {/* Grid */}
+        {/* Product Grid */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-            gap: '32px'
-          }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
         >
-          <AnimatePresence>
+          <AnimatePresence mode="wait">
             {filteredItems.map((item) => (
               <motion.div
                 key={item.id}
                 variants={itemVariants}
-                style={{
-                  transition: 'all 0.3s ease'
-                }}
+                layout
+                className="group"
               >
-                <div style={{
-                  background: 'white',
-                  borderRadius: '16px',
-                  boxShadow: '0 10px 25px rgba(0, 0, 0, 0.1)',
-                  transition: 'all 0.5s ease',
-                  overflow: 'hidden'
-                }}>
-                  {/* Image */}
-                  <div style={{
-                    position: 'relative',
-                    overflow: 'hidden',
-                    aspectRatio: '16/9'
-                  }}>
+                <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 group-hover:scale-105 overflow-hidden">
+                  {/* Product Image */}
+                  <div className="relative overflow-hidden">
                     <OptimizedImage
                       src={item.image}
                       alt={item.title}
-                      fallbackSrc="/assets/img/service/service_1_1.jpg"
-                      loading="lazy"
+                      className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+                      fallbackSrc="/assets/img/project/default-project.jpg"
                     />
                     
                     {/* Category Badge */}
-                    {item.category && (
-                      <div style={{
-                        position: 'absolute',
-                        top: '16px',
-                        left: '16px',
-                        background: 'rgba(255, 255, 255, 0.9)',
-                        backdropFilter: 'blur(8px)',
-                        borderRadius: '9999px',
-                        padding: '4px 12px'
-                      }}>
-                        <span style={{
-                          fontSize: '12px',
-                          fontWeight: '500',
-                          color: '#374151',
-                          textTransform: 'capitalize'
-                        }}>
-                          {item.category}
-                        </span>
+                    <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1">
+                      <span className="text-xs font-medium text-gray-700 capitalize">
+                        {item.category}
+                      </span>
+                    </div>
+
+                    {/* Rating */}
+                    {item.rating && (
+                      <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1">
+                        <div className="flex items-center space-x-1">
+                          {[...Array(item.rating)].map((_, index) => (
+                            <span key={index} className="text-yellow-400 text-xs">★</span>
+                          ))}
+                        </div>
                       </div>
                     )}
                   </div>
 
-                  {/* Content */}
-                  <div style={{ padding: '24px' }}>
-                    <h3 style={{
-                      fontFamily: 'Playfair Display, serif',
-                      fontWeight: '700',
-                      fontSize: '18px',
-                      marginBottom: '8px',
-                      color: '#111827',
-                      transition: 'color 0.2s ease'
-                    }}>
+                  {/* Product Content */}
+                  <div className="p-6">
+                    <h3 className="font-display font-bold text-lg mb-2 text-gray-800 group-hover:text-blue-600 transition-colors duration-200">
                       {item.title}
                     </h3>
-                    <p style={{
-                      color: '#6b7280',
-                      fontSize: '14px',
-                      marginBottom: '16px',
-                      lineHeight: '1.6'
-                    }}>
+                    <p className="text-gray-600 text-sm mb-4 line-clamp-2">
                       {item.description}
                     </p>
                     
-                    {/* Price and Details Link */}
-                    <div style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'space-between'
-                    }}>
-                      {item.price ? (
-                        <span style={{
-                          fontSize: '20px',
-                          fontWeight: 'bold',
-                          color: '#2563eb'
-                        }}>
-                          {item.price}
-                        </span>
-                      ) : <div />}
-                      <Link 
-                        to={`/services/${item.id}`} 
-                        style={{
-                          background: 'linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%)',
-                          color: 'white',
-                          padding: '8px 16px',
-                          borderRadius: '9999px',
-                          fontSize: '14px',
-                          fontWeight: '500',
-                          textDecoration: 'none',
-                          transition: 'all 0.2s ease',
-                          display: 'inline-block'
-                        }}
-                      >
-                        View Details
-                      </Link>
+                    {/* Price and Add to Cart */}
+                    <div className="flex items-center justify-between">
+                      <span className="text-xl font-bold text-blue-600">
+                        {item.price}
+                      </span>
+                      <button className="bg-gradient-to-r from-blue-500 to-purple-500 text-white px-4 py-2 rounded-full text-sm font-medium hover:shadow-lg transition-all duration-200 transform hover:scale-105">
+                        Add to Cart
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -274,36 +159,6 @@ const GallerySection: React.FC<GallerySectionProps> = ({
             ))}
           </AnimatePresence>
         </motion.div>
-
-        {ctaLink && ctaText && (
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            viewport={{ once: true }}
-            style={{ textAlign: 'center', marginTop: '64px' }}
-          >
-            <Link
-              to={ctaLink}
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '12px',
-                background: 'linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%)',
-                color: 'white',
-                padding: '16px 32px',
-                borderRadius: '12px',
-                textDecoration: 'none',
-                fontWeight: '600',
-                transition: 'all 0.3s ease',
-                boxShadow: '0 8px 25px rgba(59, 130, 246, 0.3)'
-              }}
-            >
-              <span>{ctaText}</span>
-              <ArrowRight style={{ width: '20px', height: '20px' }} />
-            </Link>
-          </motion.div>
-        )}
       </div>
     </section>
   );

@@ -124,13 +124,9 @@ const VideoButton: React.FC<VideoButtonProps> = ({
         </motion.div>
 
         <VideoModal
-          isOpen={isModalOpen}
+          open={isModalOpen}
           onClose={() => setIsModalOpen(false)}
-          videoSrc={finalVideoSrc}
-          fallbackSrc={finalFallbackSrc}
-          webmSrc={finalWebmSrc}
-          title={finalTitle}
-          description={finalDescription}
+          videoUrl={finalVideoSrc || ''}
         />
       </>
     );
@@ -182,13 +178,9 @@ const VideoButton: React.FC<VideoButtonProps> = ({
       </motion.button>
 
       <VideoModal
-        isOpen={isModalOpen}
+        open={isModalOpen}
         onClose={() => setIsModalOpen(false)}
-        videoSrc={finalVideoSrc}
-        fallbackSrc={finalFallbackSrc}
-        webmSrc={finalWebmSrc}
-        title={finalTitle}
-        description={finalDescription}
+        videoUrl={finalVideoSrc || ''}
       />
     </>
   );
